@@ -30,11 +30,29 @@ class Instance {
          */
         bool load(std::string fileName);
 
-
         /**
          * \brief display the instance
          */
         void display();
+
+        /**
+         * \brief return the length of the strings
+         * \return the length of the strings
+         */
+        int stringLength();
+
+        /**
+         * \brief number of strings of the problem
+         * \return number of strings of the problem
+         */
+        int nString();
+
+        /**
+         * \brief access a string
+         * \param ind the index of the string
+         * \return a reference toward a string
+         */
+        std::vector<int>& getString(int ind);
 
     private:
 

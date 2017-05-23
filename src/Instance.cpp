@@ -61,18 +61,30 @@ bool Instance::load(string fileName) {
 
 /*----------------------------------------------------------------------------*/
 void Instance::display() {
-
     cout << "Alphabet: size = " << _nChar << endl;
     for(int i = 0; i < _nChar; i++) {
         cout << _invMap[i] << " ";
     }
     cout << endl << endl << "Number of strings: " << _nString << endl << endl;
-
     for(int i = 0; i < _nString; i++) {
         for(int j = 0; j < _stringLength; j++) {
             cout << _invMap.at(_stringList.at(i).at(j));
         }
         cout << endl;
     }
+}
 
+/*----------------------------------------------------------------------------*/
+int Instance::stringLength() {
+    return _stringLength;
+}
+
+/*----------------------------------------------------------------------------*/
+int Instance::nString() {
+    return _nString;
+}
+
+/*----------------------------------------------------------------------------*/
+vector<int>& Instance::getString(int ind) {
+    return _stringList.at(ind);
 }
