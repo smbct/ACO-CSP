@@ -4,3 +4,11 @@
  */
 
 #include "ACS.hpp"
+
+using namespace std;
+
+ACS::ACS(Instance& instance) :
+AntColony(instance)
+{
+
+}

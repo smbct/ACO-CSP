@@ -9,13 +9,7 @@ using namespace std;
 
 /*----------------------------------------------------------------------------*/
 MaxMin::MaxMin(Instance& instance) :
-_instance(instance)
+AntColony(instance)
 {
-
-}
-
-/*----------------------------------------------------------------------------*/
-void MaxMin::solve(Solution& best) {
-
 
 }

@@ -6,13 +6,16 @@
 #ifndef ACS_HPP
 #define ACS_HPP
 
+#include "AntColony.hpp"
+
 /**
  * \class ACS
  * \brief class ACS for the Ant Colony System metaheuristic
  */
-class ACS {
+class ACS : public AntColony{
 
     public:
+        ACS(Instance& instance);
 
 
     private:

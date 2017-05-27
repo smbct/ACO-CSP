@@ -48,6 +48,12 @@ class Instance {
         int nString();
 
         /**
+         * \brief number of characters of the alphabet
+         * \return the number of character
+         */
+        int nChar();
+
+        /**
          * \brief access a string
          * \param ind the index of the string
          * \return a reference toward a string
@@ -63,6 +69,8 @@ class Instance {
         int _nString; // number of strings
         int _stringLength;
         std::vector<std::vector<int> > _stringList; // list of the strings
+
+        std::vector<std::vector<int>> _heuristicScore; // heuristic score for each decision
 
 
 };
