@@ -31,6 +31,15 @@ The matrix contains one list for each string of the set.
 The element at position i in the list is a number equal to the hamming distance
 on the sub lists of size $i+1$.
 The final distance can be read on the lste element of the list.
-A variable is also used to keep the index of the last distance.  
+A variable is also used to keep the index of the last distance.
+
+\section{Greedy algorithm}
+
+The aco depends on a greedy parameter for each choice of the solution.
+The problem aims to minimize the maximum distance.
+A greedy criteria could consist in choosing the character that minimizes the distance.
+For each position, we can assign a score to each character to the alphabet.
+This score would consist in counting how many times the character appears in the strins for a given position.
+We can also take into account the number of characters in common from the begining of the string. 
 
 \end{document}
