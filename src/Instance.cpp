@@ -51,6 +51,8 @@ bool Instance::load(string fileName) {
             }
         }
 
+        _heuristicScore.resize(_stringLength, vector<int>(_nChar, 0));
+
         return true;
     } else {
         return false;
@@ -77,6 +79,11 @@ void Instance::display() {
 /*----------------------------------------------------------------------------*/
 int Instance::stringLength() {
     return _stringLength;
+}
+
+/*----------------------------------------------------------------------------*/
+int Instance::nChar() {
+    return _nChar;
 }
 
 /*----------------------------------------------------------------------------*/
