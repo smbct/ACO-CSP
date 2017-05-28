@@ -11,7 +11,7 @@ using namespace std;
 
 /*----------------------------------------------------------------------------*/
 Solution::Solution(Instance& instance) :
-_instance(instance) {
+_instance(instance), _updateCost(true) {
 
     _solution.resize(instance.stringLength(), -1);
     _cost = -1;
@@ -24,8 +24,11 @@ _instance(instance) {
 /*----------------------------------------------------------------------------*/
 void Solution::recomputeDistances() {
 
+    _updateCost = false;
+
     _cost = -1;
 
+    // for all strings of the instance, compute the hamming distance to the solution
     for(unsigned int i = 0; i < _distances.size(); i++) {
 
         vector<int>& comp = _instance.getString(i);
@@ -46,7 +49,6 @@ void Solution::recomputeDistances() {
             _maxString = i;
         }
 
-
     }
 
 }
@@ -65,4 +67,33 @@ void Solution::display() {
 /*----------------------------------------------------------------------------*/
 void Solution::setChar(int pos, int character) {
     _solution.at(pos) = character;
+    _updateCost = true;
+}
+
+/*----------------------------------------------------------------------------*/
+int Solution::getChar(int pos) {
+    return _solution.at(pos);
+}
+
+/*----------------------------------------------------------------------------*/
+int Solution::cost() {
+
+    if(_updateCost) {
+        recomputeDistances();
+    }
+
+    return _cost;
+}
+
+/*----------------------------------------------------------------------------*/
+Solution& Solution::operator=(const Solution& solution) {
+
+    _instance = solution._instance;
+    _solution = solution._solution;
+    _cost = solution._cost;
+    _distances = solution._distances;
+    _maxString = solution._maxString;
+    _updateCost = solution._updateCost;
+
+    return *this;
 }

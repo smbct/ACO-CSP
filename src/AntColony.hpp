@@ -40,7 +40,7 @@ class AntColony {
         /**
          * \brief update the pheromones
          */
-        virtual void updatePheromones() = 0;
+        virtual void updatePheromones();
 
         /**
          * \brief compute the probabilites for each decision of the artifical ants
@@ -63,6 +63,9 @@ class AntColony {
         double _alpha; // strength of the pheromone information
         double _beta; // strength of the heuristic information
         double _rho; // strength of the pheromones evaporation
+        int _nAnts; // size of the population
+
+        std::vector<Solution> _population; // population
 };
 
 

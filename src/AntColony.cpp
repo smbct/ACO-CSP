@@ -7,15 +7,22 @@
 
 #include "Utils.hpp"
 
+#include <iostream>
 #include <cmath>
 
 using namespace std;
 
 /*----------------------------------------------------------------------------*/
 AntColony::AntColony(Instance& instance) :
-_instance(instance), _pheromones(instance.stringLength(), vector<double>(instance.nChar(), 1.0/instance.nChar()))
+_instance(instance), _pheromones(instance.stringLength(), vector<double>(instance.nChar(), 1.0/instance.nChar())),
+_probas(instance.stringLength(), vector<double>(instance.nChar(), 0.)),
+_nAnts(10), _population(_nAnts, instance)
 {
 
+    _alpha = 0.3;
+    _beta = 0.4;
+
+    _rho = 0.6;
 
 }
 
@@ -24,14 +31,10 @@ void AntColony::buildSolution(Solution& solution) {
 
     // make a choice for each character of the solution
     for(int i = 0; i < _instance.stringLength(); i++) {
-
-        int character = randomChoice(i);
-
         // the solution is modified
-
+        int character = randomChoice(i);
+        solution.setChar(i, character);
     }
-
-    // the score of the solution is recomputed
 
 }
 
@@ -44,6 +47,7 @@ void AntColony::computeProbas() {
         double sum = 0;
 
         for(int j = 0; j < _instance.nChar(); j++) {
+
             // probability: pheroemoneTrail^{\alpha} + heuristicInfo^{\beta}
             _probas.at(i).at(j) = pow(_pheromones.at(i).at(j), _alpha) + pow(_instance.greedyScore(i, j), _beta);
             sum += _probas.at(i).at(j);
@@ -78,5 +82,58 @@ int AntColony::randomChoice(int pos) {
         }
     }
 
+
     return choice;
+}
+
+/*----------------------------------------------------------------------------*/
+void AntColony::updatePheromones() {
+
+    // evaporation phase
+    for(int i = 0; i < _instance.stringLength(); i++) {
+        for(int j = 0; j < _instance.nChar(); j++) {
+            _pheromones.at(i).at(j) *= (1.-_rho);
+        }
+    }
+
+    // positive feedback phase from artifical ants
+    for(int i = 0; i < _nAnts; i++) {
+        for(int j = 0; j < _instance.stringLength(); j++) {
+            _pheromones.at(j).at(_population.at(i).getChar(j)) += 1./(double)_population.at(i).cost();
+        }
+    }
+
+}
+
+/*----------------------------------------------------------------------------*/
+void AntColony::solve(Solution& best) {
+
+    bool init = false;
+    int nbIt = 0;
+
+    // probas initialisation
+    computeProbas();
+
+    while(nbIt < 100) {
+
+        // build the population
+        for(int ant = 0; ant < _nAnts; ant ++) {
+            buildSolution(_population.at(ant));
+
+            // the update best solution
+            if(!init || _population.at(ant).cost() < best.cost()) {
+                best = _population.at(ant);
+                init = true;
+                cout << "improvement: " << best.cost() << endl;
+            }
+
+        }
+
+        // update pheromones and probabilities
+        updatePheromones();
+        computeProbas();
+
+        nbIt ++;
+    }
+
 }
