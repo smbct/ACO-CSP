@@ -34,11 +34,30 @@ class Solution {
          */
         void setChar(int pos, int character);
 
+        /**
+         * \brief return a character at a given position
+         * \param pos the position
+         * \return the character at position pos
+         */
+        int getChar(int pos);
+
+        /**
+         * \brief return the cost of the solution
+         * \return the cost
+         */
+        int cost();
+
+        /**
+         * \brief copy operator
+         * \param solution the solution to copy
+         */
+        Solution& operator=(const Solution& solution);
+
 
     private: // private methods
 
         /**
-         * \brief recompute all the distances in the matrix
+         * \brief recompute all the distances in the matrix and the cost the solution
          */
         void recomputeDistances();
 
@@ -50,8 +69,10 @@ class Solution {
         std::vector<int> _solution; // a solution for the problem
         int _cost; // cost of the solution
 
-        std::vector<std::vector<int>> _distances; // matrice of the sub-distances
+        std::vector<std::vector<int>> _distances; // matrice of the sub-distances from the solution to the strings of the problem
         int _maxString; // index of the instance string for which the distance is maximum
+
+        bool _updateCost; // indicates if the cost must be recomputed
 
 
 };
