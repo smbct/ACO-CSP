@@ -27,16 +27,23 @@ class Solution {
          */
         void display();
 
-    // private methods
-    private:
+        /**
+         * \brief set the character of the solution in position pos
+         * \param pos the position
+         * \param character the character
+         */
+        void setChar(int pos, int character);
+
+
+    private: // private methods
 
         /**
          * \brief recompute all the distances in the matrix
          */
         void recomputeDistances();
 
-    // private attributes
-    private:
+
+    private: // private attributes
 
         Instance& _instance; // instance of the CSP problem
 

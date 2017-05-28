@@ -60,7 +60,21 @@ class Instance {
          */
         std::vector<int>& getString(int ind);
 
-    private:
+        /**
+         * \brief returns the greedy score of a character for a given position
+         * \param pos the position in the strings
+         * \param ch the character
+         */
+        double greedyScore(int pos, int ch);
+
+    private: // private methods
+
+        /**
+         * \brief compute a greedy score for each character at each position of the strings
+         */
+        void computeGreedyScore();
+
+    private: // private attributes
 
         int _nChar; // number of characters in the alphabet
         std::map<char, int> _charInd; // index of the characters
@@ -70,7 +84,7 @@ class Instance {
         int _stringLength;
         std::vector<std::vector<int> > _stringList; // list of the strings
 
-        std::vector<std::vector<int>> _heuristicScore; // heuristic score for each decision
+        std::vector<std::vector<double>> _greedyScore; // greedy score for each position
 
 
 };

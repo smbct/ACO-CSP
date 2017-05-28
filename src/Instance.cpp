@@ -51,7 +51,7 @@ bool Instance::load(string fileName) {
             }
         }
 
-        _heuristicScore.resize(_stringLength, vector<int>(_nChar, 0));
+        computeGreedyScore();
 
         return true;
     } else {
@@ -94,4 +94,26 @@ int Instance::nString() {
 /*----------------------------------------------------------------------------*/
 vector<int>& Instance::getString(int ind) {
     return _stringList.at(ind);
+}
+
+/*----------------------------------------------------------------------------*/
+void Instance::computeGreedyScore() {
+
+    _greedyScore.resize(_stringLength, vector<double>(_nChar, 0.));
+
+    for(int i = 0; i < _stringLength; i++) {
+        for(int j = 0; j < _nString; j++) {
+            int elt = _stringList.at(j).at(i);
+            _greedyScore.at(i).at(elt) += 1.;
+        }
+        for(int j = 0; j < _nChar; j++) {
+            _greedyScore.at(i).at(j) = 1. - (_greedyScore.at(i).at(j)/(double)_stringLength);
+        }
+    }
+
+}
+
+/*----------------------------------------------------------------------------*/
+double Instance::greedyScore(int pos, int ch) {
+    return _greedyScore.at(pos).at(ch);
 }

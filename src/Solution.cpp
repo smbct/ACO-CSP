@@ -61,3 +61,8 @@ void Solution::display() {
     cout << endl << "cost: " << _cost << endl;
 
 }
+
+/*----------------------------------------------------------------------------*/
+void Solution::setChar(int pos, int character) {
+    _solution.at(pos) = character;
+}
