@@ -40,6 +40,13 @@ The problem aims to minimize the maximum distance.
 A greedy criteria could consist in choosing the character that minimizes the distance.
 For each position, we can assign a score to each character to the alphabet.
 This score would consist in counting how many times the character appears in the strins for a given position.
-We can also take into account the number of characters in common from the begining of the string. 
+We can also take into account the number of characters in common from the begining of the string. \newline
+
+It looks like the greedy solution is very good (better than what the algorithm is able to find).
+There must be a problem because it is actually good when we take the min. \newline
+
+Actually, there was a problem.
+The greedy score was inverted so that it tried to obtain the worst possible score.
+And It worked, the greedy solution was worst than the random one.
 
 \end{document}

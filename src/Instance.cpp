@@ -109,15 +109,16 @@ void Instance::computeGreedyScore() {
 
     for(int i = 0; i < _stringLength; i++) {
 
-        // each character loses one point each time it appears in one string
+        // each character wins one point each time it appears in one string
         for(int j = 0; j < _nString; j++) {
             int elt = _stringList.at(j).at(i);
             _greedyScore.at(i).at(elt) += 1.;
         }
 
-        // the result is in between 0 and 1 and the best score is reached by the less frequent character
+        // the result is in between 0 and 1 and the best score is reached by the more frequent character
+        // (as we want to minimize the distance)
         for(int j = 0; j < _nChar; j++) {
-            _greedyScore.at(i).at(j) = 1. - (_greedyScore.at(i).at(j)/(double)_stringLength);
+            _greedyScore.at(i).at(j) = _greedyScore.at(i).at(j)/(double)_stringLength;
         }
     }
 

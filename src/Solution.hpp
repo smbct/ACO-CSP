@@ -53,6 +53,16 @@ class Solution {
          */
         Solution& operator=(const Solution& solution);
 
+        /**
+         * \brief generate a greedy solution
+         */
+        void generateGreedy();
+
+        /**
+         * \brief generate a random solution
+         */
+        void generateRandom();
+
 
     private: // private methods
 
