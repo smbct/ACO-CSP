@@ -4,8 +4,10 @@
  */
 
 #include "Solution.hpp"
+#include "Utils.hpp"
 
 #include <iostream>
+#include <cmath>
 
 using namespace std;
 
@@ -96,4 +98,30 @@ Solution& Solution::operator=(const Solution& solution) {
     _updateCost = solution._updateCost;
 
     return *this;
+}
+
+/*----------------------------------------------------------------------------*/
+void Solution::generateGreedy() {
+
+    for(int i = 0; i < _instance.stringLength(); i++) {
+        int charMin = -1;
+        double scoreMax = -1;
+        for(int j = 0; j < _instance.nChar(); j++) {
+            if(j == 0 || scoreMax < _instance.greedyScore(i, j)) {
+                charMin = j;
+                scoreMax = _instance.greedyScore(i, j);
+            }
+        }
+        setChar(i, charMin);
+    }
+
+}
+
+/*----------------------------------------------------------------------------*/
+void Solution::generateRandom() {
+
+    for(int i = 0; i < _instance.stringLength(); i++) {
+        setChar(i, (int)floor(Utils::randomNumber()*_instance.nChar()));
+    }
+
 }
