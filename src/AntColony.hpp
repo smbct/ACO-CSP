@@ -29,6 +29,11 @@ class AntColony {
          */
         void solve(Solution& best);
 
+        /**
+         * \brief display the pheromone matrix of the algorithm
+         */
+        void displayPheromones();
+
     protected: // protected methods
 
         /**

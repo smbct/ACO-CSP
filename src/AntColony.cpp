@@ -14,7 +14,7 @@ using namespace std;
 
 /*----------------------------------------------------------------------------*/
 AntColony::AntColony(Instance& instance) :
-_instance(instance), _pheromones(instance.stringLength(), vector<double>(instance.nChar(), 1.0/instance.nChar())),
+_instance(instance), _pheromones(instance.stringLength(), vector<double>(instance.nChar(), 10.)),
 _probas(instance.stringLength(), vector<double>(instance.nChar(), 0.)),
 _nAnts(10), _population(_nAnts, instance)
 {
@@ -22,7 +22,20 @@ _nAnts(10), _population(_nAnts, instance)
     _alpha = 0.3;
     _beta = 0.4;
 
-    _rho = 0.6;
+    _rho = 0.02;
+
+}
+
+/*----------------------------------------------------------------------------*/
+void AntColony::displayPheromones() {
+
+    for(int i = 0; i < _instance.stringLength(); i++) {
+        cout << i << " : ";
+        for(int j = 0; j < _instance.nChar(); j++) {
+            cout << _instance.getIndexChar(j) << " (" << _pheromones.at(i).at(j) << ") ";
+        }
+        cout << endl;
+    }
 
 }
 
@@ -114,7 +127,7 @@ void AntColony::solve(Solution& best) {
     // probas initialisation
     computeProbas();
 
-    while(nbIt < 100) {
+    while(nbIt < 500) {
 
         // build the population
         for(int ant = 0; ant < _nAnts; ant ++) {

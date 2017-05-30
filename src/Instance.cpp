@@ -21,6 +21,7 @@ Instance::Instance() {
 bool Instance::load(string fileName) {
 
     ifstream file(fileName);
+
     if(file) {
 
         // alphabet size
@@ -31,14 +32,14 @@ bool Instance::load(string fileName) {
 
         // string length
         file >> _stringLength;
-        _invMap.resize(_stringLength);
+        _indMap.resize(_stringLength);
 
         // alphabet
         char c;
         for(int i = 0; i < _nChar; i++) {
             file >> c;
             _charInd.insert(pair<char, int>(c, i));
-            _invMap.at(i) = c;
+            _indMap.at(i) = c;
         }
 
         // the strings
@@ -65,12 +66,12 @@ bool Instance::load(string fileName) {
 void Instance::display() {
     cout << "Alphabet: size = " << _nChar << endl;
     for(int i = 0; i < _nChar; i++) {
-        cout << _invMap[i] << " ";
+        cout << _indMap[i] << " ";
     }
     cout << endl << endl << "Number of strings: " << _nString << endl << endl;
     for(int i = 0; i < _nString; i++) {
         for(int j = 0; j < _stringLength; j++) {
-            cout << _invMap.at(_stringList.at(i).at(j));
+            cout << _indMap.at(_stringList.at(i).at(j));
         }
         cout << endl;
     }
@@ -97,15 +98,24 @@ vector<int>& Instance::getString(int ind) {
 }
 
 /*----------------------------------------------------------------------------*/
+char Instance::getIndexChar(int ind) {
+    return _indMap.at(ind);
+}
+
+/*----------------------------------------------------------------------------*/
 void Instance::computeGreedyScore() {
 
     _greedyScore.resize(_stringLength, vector<double>(_nChar, 0.));
 
     for(int i = 0; i < _stringLength; i++) {
+
+        // each character loses one point each time it appears in one string
         for(int j = 0; j < _nString; j++) {
             int elt = _stringList.at(j).at(i);
             _greedyScore.at(i).at(elt) += 1.;
         }
+
+        // the result is in between 0 and 1 and the best score is reached by the less frequent character
         for(int j = 0; j < _nChar; j++) {
             _greedyScore.at(i).at(j) = 1. - (_greedyScore.at(i).at(j)/(double)_stringLength);
         }

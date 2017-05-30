@@ -54,6 +54,13 @@ class Instance {
         int nChar();
 
         /**
+         * \brief get the character represented by the index index
+         * \param ind the index that represents the character in the problem
+         * \return the character
+         */
+        char getIndexChar(int ind);
+
+        /**
          * \brief access a string
          * \param ind the index of the string
          * \return a reference toward a string
@@ -78,7 +85,7 @@ class Instance {
 
         int _nChar; // number of characters in the alphabet
         std::map<char, int> _charInd; // index of the characters
-        std::vector<char> _invMap; // invers map, find the character from the index
+        std::vector<char> _indMap; // inverse map, find the character from the index
 
         int _nString; // number of strings
         int _stringLength;
