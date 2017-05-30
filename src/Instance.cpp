@@ -7,6 +7,7 @@
 
 #include <fstream>
 #include <iostream>
+#include <cmath>
 
 using namespace std;
 
@@ -115,11 +116,46 @@ void Instance::computeGreedyScore() {
             _greedyScore.at(i).at(elt) += 1.;
         }
 
+        // copute the min and the max to rescale the scores
+        double min = 0;
+        double max = 0;
+        for(int j = 0; j < _nChar; j++) {
+            if(j == 0 || _greedyScore.at(i).at(j) < min) {
+                min = (double)_greedyScore.at(i).at(j);
+            }
+            if(j == 0 || _greedyScore.at(i).at(j) > max) {
+                max = (double)_greedyScore.at(i).at(j);
+            }
+        }
+
         // the result is in between 0 and 1 and the best score is reached by the more frequent character
         // (as we want to minimize the distance)
+        // the exponential function is applied because the scores were very close to each other
+        double scaleFactor = 1000.;
+        // cout << endl << endl << endl;
+
         for(int j = 0; j < _nChar; j++) {
-            _greedyScore.at(i).at(j) = _greedyScore.at(i).at(j)/(double)_stringLength;
+            // _greedyScore.at(i).at(j) = pow(_greedyScore.at(i).at(j)*scaleFactor, 3);
+
+            // _greedyScore.at(i).at(j) = (_greedyScore.at(i).at(j)-min)/(max-min);
+            // _greedyScore.at(i).at(j) = exp(_greedyScore.at(i).at(j)*5.);
+
+            _greedyScore.at(i).at(j) = 1.0 / ((_nString - _greedyScore.at(i).at(j))*scaleFactor);
+
+
+            if(j == 0 || _greedyScore.at(i).at(j) < min) {
+                min = (double)_greedyScore.at(i).at(j);
+            }
+            if(j == 0 || _greedyScore.at(i).at(j) > max) {
+                max = (double)_greedyScore.at(i).at(j);
+            }
+
         }
+
+        // for(int j = 0; j < _nChar; j++) {
+            // _greedyScore.at(i).at(j) = (_greedyScore.at(i).at(j)-min)/(max-min);
+            // cout << "gs: " << _greedyScore.at(i).at(j) << endl;
+        // }
     }
 
 }

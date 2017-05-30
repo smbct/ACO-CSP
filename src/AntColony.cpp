@@ -14,15 +14,15 @@ using namespace std;
 
 /*----------------------------------------------------------------------------*/
 AntColony::AntColony(Instance& instance) :
-_instance(instance), _pheromones(instance.stringLength(), vector<double>(instance.nChar(), 2.)),
+_instance(instance), _pheromones(instance.stringLength(), vector<double>(instance.nChar(), 1000.)),
 _probas(instance.stringLength(), vector<double>(instance.nChar(), 0.)),
 _nAnts(10), _population(_nAnts, instance)
 {
 
     _alpha = 0.;
-    _beta = 1.;
+    _beta = 2.;
 
-    _rho = 0.9;
+    _rho = 0.3;
 
 }
 
@@ -95,9 +95,12 @@ int AntColony::randomChoice(int pos) {
         }
     }
 
-    for(int i = 0; i < _instance.nChar(); i++) {
-        
-    }
+    // cout << endl << endl << "roulette: " << endl;
+    // for(int i = 0; i < _instance.nChar(); i++) {
+    //     cout << i << ": " << _probas.at(pos).at(i) << " ";
+    // }
+    // cout << endl << "random number: " << rndRes << endl;
+    // cout << "choice: " << choice << endl;
 
 
     return choice;
