@@ -58,7 +58,7 @@ void Solution::display() {
 
     cout << "Solution: " << endl;
     for(unsigned int i = 0; i < _solution.size(); i++) {
-        cout << _solution.at(i);
+        cout << _instance.getIndexChar(_solution.at(i));
     }
     cout << endl << "cost: " << _cost << endl;
 

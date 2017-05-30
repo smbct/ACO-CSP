@@ -8,14 +8,15 @@ using namespace std;
 
 int main(int argc, char* argv[]) {
 
-    srand(13245);
+    srand(12345);
 
     Instance inst;
-    inst.load("instances/2-30-10000-1-9.csp");
-
-    // inst.display();
+    // inst.load("instances/2-30-10000-1-9.csp");
+    // inst.load("instances/4-20-10000-1-2.csp");
+    inst.load("src/toy.csp");
 
     AntColony colony(inst);
+    // colony.displayPheromones();
 
     Solution sol(inst);
 
@@ -23,6 +24,14 @@ int main(int argc, char* argv[]) {
 
     // sol.display();
     cout << "best: " << sol.cost() << endl;
+
+    // int opt = 4278;
+    int opt = 6312;
+    // double rpd = (((double)sol.cost() - (double)opt)/(double)opt)*100.;
+
+    // cout << "rpd: " << rpd << endl;
+
+    colony.displayPheromones();
 
     return 0;
 }
