@@ -14,15 +14,28 @@ using namespace std;
 
 /*----------------------------------------------------------------------------*/
 AntColony::AntColony(Instance& instance) :
-_instance(instance), _pheromones(instance.stringLength(), vector<double>(instance.nChar(), 10.)),
+_instance(instance), _pheromones(instance.stringLength(), vector<double>(instance.nChar(), 0.)),
 _probas(instance.stringLength(), vector<double>(instance.nChar(), 0.)),
-_nAnts(10), _population(_nAnts, instance)
+_nAnts(20), _population(_nAnts, instance)
 {
 
-    _alpha = -1e2;
-    _beta = 1.;
+    _alpha = 1.5;
+    _beta = 6.;
 
-    _rho = 0.01;
+    _rho = 0.2;
+
+    _nItMax = 1000;
+
+}
+
+/*----------------------------------------------------------------------------*/
+void AntColony::initPheromones() {
+
+    for(int i = 0; i < _instance.stringLength(); i++) {
+        for(int j = 0; j < _instance.nChar(); j++) {
+            _pheromones.at(i).at(j) = 100.;
+        }
+    }
 
 }
 
@@ -96,7 +109,7 @@ int AntColony::randomChoice(int pos) {
     int choice = 0;
 
     bool stop = false;
-    while(!stop) {
+    while(!stop && choice < _instance.nChar()) {
 
         sum += _probas.at(pos).at(choice);
 
@@ -111,20 +124,21 @@ int AntColony::randomChoice(int pos) {
 }
 
 /*----------------------------------------------------------------------------*/
-void AntColony::updatePheromones() {
+void AntColony::evaporatePheromone() {
 
-    // evaporation phase
     for(int i = 0; i < _instance.stringLength(); i++) {
         for(int j = 0; j < _instance.nChar(); j++) {
             _pheromones.at(i).at(j) *= (1.-_rho);
         }
     }
 
-    // positive feedback phase from artifical ants
-    for(int i = 0; i < _nAnts; i++) {
-        for(int j = 0; j < _instance.stringLength(); j++) {
-            _pheromones.at(j).at(_population.at(i).getChar(j)) += 1./(double)_population.at(i).cost();
-        }
+}
+
+/*----------------------------------------------------------------------------*/
+void AntColony::depositPheromones(Solution& ant) {
+
+    for(int j = 0; j < _instance.stringLength(); j++) {
+        _pheromones.at(j).at(ant.getChar(j)) += 1./(double)ant.cost();
     }
 
 }
@@ -135,10 +149,11 @@ void AntColony::solve(Solution& best) {
     bool init = false;
     int nbIt = 0;
 
-    // probas initialisation
+    // probas and pheromone initialisation
+    initPheromones();
     computeProbas();
 
-    while(nbIt < 500) {
+    while(nbIt < _nItMax) {
 
         // build the population
         for(int ant = 0; ant < _nAnts; ant ++) {
@@ -154,7 +169,12 @@ void AntColony::solve(Solution& best) {
         }
 
         // update pheromones and probabilities
-        updatePheromones();
+        // evaporation phase
+        evaporatePheromone();
+        // positive feedback phase from artifical ants
+        for(int i = 0; i < _nAnts; i++) {
+            depositPheromones(_population.at(i));
+        }
         computeProbas();
 
         // displayProbas();

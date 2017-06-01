@@ -22,7 +22,38 @@ class MaxMin : public AntColony {
          */
         MaxMin(Instance& instance);
 
+        /**
+         * \brief solve the CSP problem
+         * \param best the best solution found
+         */
+        void solve(Solution& best);
 
+    protected: // protected methods
+
+        /**
+         * \brief init the pheromone matrix
+         */
+        virtual void initPheromones();
+
+        /**
+         * \brief deposit pheromones
+         * \param ant the ant which deposits the pheromones
+         */
+        virtual void depositPheromones(Solution& ant);
+
+        /**
+         * \brief update pheromone bounds
+         * \parap bestAnt the best solution so far
+         */
+        virtual void updateBounds(Solution& best);
+
+    private: // private attributes
+
+        double _maxPheromone;
+        double _minPheromone;
+        double _a; // determines _minPheromone
+
+        int _nItConverge; // number of iteration to decide if the algorithm converges
 
 
 };
