@@ -131,16 +131,11 @@ void Instance::computeGreedyScore() {
         // the result is in between 0 and 1 and the best score is reached by the more frequent character
         // (as we want to minimize the distance)
         // the exponential function is applied because the scores were very close to each other
-        double scaleFactor = 1000.;
-        // cout << endl << endl << endl;
+        double scaleFactor = 5.;
 
         for(int j = 0; j < _nChar; j++) {
-            // _greedyScore.at(i).at(j) = pow(_greedyScore.at(i).at(j)*scaleFactor, 3);
 
-            // _greedyScore.at(i).at(j) = (_greedyScore.at(i).at(j)-min)/(max-min);
-            // _greedyScore.at(i).at(j) = exp(_greedyScore.at(i).at(j)*5.);
-
-            _greedyScore.at(i).at(j) = 1.0 / ((_nString - _greedyScore.at(i).at(j))*scaleFactor);
+            _greedyScore.at(i).at(j) = exp(_greedyScore.at(i).at(j)*scaleFactor);
 
 
             if(j == 0 || _greedyScore.at(i).at(j) < min) {
@@ -152,10 +147,9 @@ void Instance::computeGreedyScore() {
 
         }
 
-        // for(int j = 0; j < _nChar; j++) {
-            // _greedyScore.at(i).at(j) = (_greedyScore.at(i).at(j)-min)/(max-min);
-            // cout << "gs: " << _greedyScore.at(i).at(j) << endl;
-        // }
+        for(int j = 0; j < _nChar; j++) {
+            _greedyScore.at(i).at(j) = (_greedyScore.at(i).at(j)/max)*10.;
+        }
     }
 
 }

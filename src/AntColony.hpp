@@ -34,6 +34,11 @@ class AntColony {
          */
         void displayPheromones();
 
+        /**
+         * \brief display the probabilities matrix of the algorithm
+         */
+        void displayProbas();
+
     protected: // protected methods
 
         /**
