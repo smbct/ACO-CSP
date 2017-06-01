@@ -45,7 +45,10 @@ void MaxMin::initPheromones() {
 void MaxMin::depositPheromones(Solution& ant) {
 
     for(int j = 0; j < _instance.stringLength(); j++) {
-        _pheromones.at(j).at(ant.getChar(j)) += 1./(double)ant.cost();
+        // _pheromones.at(j).at(ant.getChar(j)) += 1./(double)ant.cost();
+
+        // _pheromones.at(j).at(ant.getChar(j)) -= 1. / rand();
+
 
         // check pheromones bounds
         if(_pheromones.at(j).at(ant.getChar(j)) > _maxPheromone) {
