@@ -32,7 +32,7 @@ class AntColony {
         /**
          * \brief display the pheromone matrix of the algorithm
          */
-        void displayPheromones();
+        virtual void displayPheromones();
 
         /**
          * \brief display the probabilities matrix of the algorithm
@@ -48,11 +48,6 @@ class AntColony {
         void buildSolution(Solution& solution);
 
         /**
-         * \brief update the pheromones
-         */
-        virtual void updatePheromones();
-
-        /**
          * \brief compute the probabilites for each decision of the artifical ants
          */
         void computeProbas();
@@ -64,6 +59,22 @@ class AntColony {
          */
         int randomChoice(int pos);
 
+        /**
+         * \brief evaporate the artificial pheromones
+         */
+        void evaporatePheromone();
+
+        /**
+         * \brief deposit pheromones
+         * \param ant the ant which deposits the pheromones
+         */
+        virtual void depositPheromones(Solution& ant);
+
+        /**
+         * \brief init the pheromone matrix
+         */
+        virtual void initPheromones();
+
     protected: // protected attributes
 
         Instance& _instance;
@@ -74,6 +85,7 @@ class AntColony {
         double _beta; // strength of the heuristic information
         double _rho; // strength of the pheromones evaporation
         int _nAnts; // size of the population
+        int _nItMax; // maximum number of iteration
 
         std::vector<Solution> _population; // population
 };
