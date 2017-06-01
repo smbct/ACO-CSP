@@ -14,15 +14,15 @@ using namespace std;
 
 /*----------------------------------------------------------------------------*/
 AntColony::AntColony(Instance& instance) :
-_instance(instance), _pheromones(instance.stringLength(), vector<double>(instance.nChar(), 1000.)),
+_instance(instance), _pheromones(instance.stringLength(), vector<double>(instance.nChar(), 10.)),
 _probas(instance.stringLength(), vector<double>(instance.nChar(), 0.)),
 _nAnts(10), _population(_nAnts, instance)
 {
 
-    _alpha = 0.;
-    _beta = 2.;
+    _alpha = -1e2;
+    _beta = 1.;
 
-    _rho = 0.3;
+    _rho = 0.01;
 
 }
 
@@ -33,6 +33,19 @@ void AntColony::displayPheromones() {
         cout << i << " : ";
         for(int j = 0; j < _instance.nChar(); j++) {
             cout << _instance.getIndexChar(j) << " (" << _pheromones.at(i).at(j) << ") ";
+        }
+        cout << endl;
+    }
+
+}
+
+/*----------------------------------------------------------------------------*/
+void AntColony::displayProbas() {
+
+    for(int i = 0; i < _instance.stringLength(); i++) {
+        cout << i << " : ";
+        for(int j = 0; j < _instance.nChar(); j++) {
+            cout << _instance.getIndexChar(j) << " (" << _probas.at(i).at(j) << ") ";
         }
         cout << endl;
     }
@@ -66,7 +79,6 @@ void AntColony::computeProbas() {
             sum += _probas.at(i).at(j);
         }
 
-        // probas are normalized
         for(int j = 0; j < _instance.nChar(); j++) {
             _probas.at(i).at(j) /= sum;
         }
@@ -79,29 +91,21 @@ void AntColony::computeProbas() {
 int AntColony::randomChoice(int pos) {
 
     double rndRes = Utils::randomNumber();
-    double sumProbas = 0.;
+    double sum = 0.;
 
     int choice = 0;
 
     bool stop = false;
     while(!stop) {
 
-        sumProbas += _probas.at(pos).at(choice);
+        sum += _probas.at(pos).at(choice);
 
-        if(sumProbas <= rndRes) {
+        if(sum <= rndRes) {
             choice ++;
         } else {
             stop = true;
         }
     }
-
-    // cout << endl << endl << "roulette: " << endl;
-    // for(int i = 0; i < _instance.nChar(); i++) {
-    //     cout << i << ": " << _probas.at(pos).at(i) << " ";
-    // }
-    // cout << endl << "random number: " << rndRes << endl;
-    // cout << "choice: " << choice << endl;
-
 
     return choice;
 }
@@ -152,6 +156,9 @@ void AntColony::solve(Solution& best) {
         // update pheromones and probabilities
         updatePheromones();
         computeProbas();
+
+        // displayProbas();
+        // cout << endl << endl;
 
         nbIt ++;
     }
