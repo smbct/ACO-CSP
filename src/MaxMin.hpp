@@ -47,6 +47,11 @@ class MaxMin : public AntColony {
          */
         virtual void updateBounds(Solution& best);
 
+        /**
+         * \brief check if the pheromones satisfy the bounds
+         */
+        virtual void checkBounds();
+
     private: // private attributes
 
         double _maxPheromone;

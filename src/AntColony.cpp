@@ -16,13 +16,13 @@ using namespace std;
 AntColony::AntColony(Instance& instance) :
 _instance(instance), _pheromones(instance.stringLength(), vector<double>(instance.nChar(), 0.)),
 _probas(instance.stringLength(), vector<double>(instance.nChar(), 0.)),
-_nAnts(20), _population(_nAnts, instance)
+_nAnts(10), _population(_nAnts, instance)
 {
 
-    _alpha = -1.5;
-    _beta = 3.;
+    _alpha = 1.205;
+    _beta = 4.7;
 
-    _rho = 0.005;
+    _rho = 0.12;
 
     _nItMax = 1000;
 
@@ -83,13 +83,15 @@ void AntColony::computeProbas() {
 
     for(int i = 0; i < _instance.stringLength(); i++) {
 
-        double sum = 0;
+        double sum = 0.;
 
         for(int j = 0; j < _instance.nChar(); j++) {
 
             // probability: pheroemoneTrail^{\alpha} + heuristicInfo^{\beta}
             _probas.at(i).at(j) = pow(_pheromones.at(i).at(j), _alpha) + pow(_instance.greedyScore(i, j), _beta);
             sum += _probas.at(i).at(j);
+
+            // cout << "phero_score: " << pow(_pheromones.at(i).at(j), _alpha) << " heur_score: " << pow(_instance.greedyScore(i, j), _beta) << endl;
         }
 
         for(int j = 0; j < _instance.nChar(); j++) {
@@ -138,7 +140,8 @@ void AntColony::evaporatePheromone() {
 void AntColony::depositPheromones(Solution& ant) {
 
     for(int j = 0; j < _instance.stringLength(); j++) {
-        _pheromones.at(j).at(ant.getChar(j)) += 1./(double)ant.cost();
+        // _pheromones.at(j).at(ant.getChar(j)) += 1./(double)ant.cost();
+        _pheromones.at(j).at(ant.getChar(j)) += (1. - (double)ant.cost()/(double)_instance.stringLength());
     }
 
 }
