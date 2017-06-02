@@ -16,16 +16,16 @@ AntColony(instance)
 
     _nItMax = 1000;
 
-    _alpha = -2.;
-    _beta = 3.5;
+    _alpha = 1.3;
+    _beta = 4.;
 
-    _nAnts = 60;
+    _nAnts = 10;
 
-    _a = 1.9498;
+    _a = 5.;
     _maxPheromone = 1e20;
     _minPheromone = _maxPheromone/_a;
-    _rho = 0.05;
-    _nItConverge = (int)((double)_nItMax*0.12);
+    _rho = 0.4;
+    _nItConverge = (int)((double)_nItMax*0.18);
 
     _population.resize(_nAnts, instance);
 }
@@ -45,10 +45,8 @@ void MaxMin::initPheromones() {
 void MaxMin::depositPheromones(Solution& ant) {
 
     for(int j = 0; j < _instance.stringLength(); j++) {
-        // _pheromones.at(j).at(ant.getChar(j)) += 1./(double)ant.cost();
-
-        // _pheromones.at(j).at(ant.getChar(j)) -= 1. / rand();
-
+        _pheromones.at(j).at(ant.getChar(j)) += 1./(double)ant.cost();
+        // _pheromones.at(j).at(ant.getChar(j)) += 1. - (double)ant.cost()/(double)_instance.stringLength();
 
         // check pheromones bounds
         if(_pheromones.at(j).at(ant.getChar(j)) > _maxPheromone) {
@@ -67,6 +65,27 @@ void MaxMin::updateBounds(Solution& best) {
 
     _maxPheromone = 1./(_rho*(double)best.cost());
     _minPheromone = _maxPheromone/_a;
+
+}
+
+/*----------------------------------------------------------------------------*/
+void MaxMin::checkBounds() {
+
+    for(int i = 0; i < _instance.stringLength(); i++) {
+
+        for(int j = 0; j < _instance.nChar(); j++) {
+
+            // check pheromones bounds
+            if(_pheromones.at(i).at(j) > _maxPheromone) {
+                _pheromones.at(i).at(j) = _maxPheromone;
+            }
+            if(_pheromones.at(i).at(j) < _minPheromone) {
+                _pheromones.at(i).at(j) = _minPheromone;
+            }
+
+        }
+
+    }
 
 }
 
@@ -117,6 +136,8 @@ void MaxMin::solve(Solution& best) {
             evaporatePheromone();
             // only the best want deposits pheromones
             depositPheromones(*bestIt);
+            // pheromones bounds
+            checkBounds();
         }
 
         computeProbas();

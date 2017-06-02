@@ -5,6 +5,7 @@
 #include "AntColony.hpp"
 #include "MaxMin.hpp"
 
+#include <SFML/Graphics.hpp>
 using namespace std;
 
 int main(int argc, char* argv[]) {
@@ -19,8 +20,8 @@ int main(int argc, char* argv[]) {
     // inst.load("instances/20-50-10000-1-1.csp");
     // inst.load("src/toy.csp");
 
-    // AntColony colony(inst);
-    MaxMin colony(inst);
+    AntColony colony(inst);
+    // MaxMin colony(inst);
     // colony.displayPheromones();
 
     Solution sol(inst);
@@ -46,7 +47,21 @@ int main(int argc, char* argv[]) {
     sol.generateGreedy();
     cout << "greedy sol: " << sol.cost() << endl;
 
-
+    // sf::RenderWindow window(sf::VideoMode(1024, 768, 32), "test");
+    //
+    // while(window.isOpen()) {
+    //
+    //     sf::Event event;
+    //
+    //     while(window.pollEvent(event)) {
+    //
+    //         if(event.type == sf::Event::Closed) {
+    //             window.close();
+    //         }
+    //
+    //         window.display();
+    //     }
+    // }
 
     return 0;
 }

@@ -119,14 +119,14 @@ void Instance::computeGreedyScore() {
         // copute the min and the max to rescale the scores
         double min = 0;
         double max = 0;
-        for(int j = 0; j < _nChar; j++) {
-            if(j == 0 || _greedyScore.at(i).at(j) < min) {
-                min = (double)_greedyScore.at(i).at(j);
-            }
-            if(j == 0 || _greedyScore.at(i).at(j) > max) {
-                max = (double)_greedyScore.at(i).at(j);
-            }
-        }
+        // for(int j = 0; j < _nChar; j++) {
+        //     if(j == 0 || _greedyScore.at(i).at(j) < min) {
+        //         min = (double)_greedyScore.at(i).at(j);
+        //     }
+        //     if(j == 0 || _greedyScore.at(i).at(j) > max) {
+        //         max = (double)_greedyScore.at(i).at(j);
+        //     }
+        // }
 
         // the result is in between 0 and 1 and the best score is reached by the more frequent character
         // (as we want to minimize the distance)
@@ -137,7 +137,6 @@ void Instance::computeGreedyScore() {
 
             _greedyScore.at(i).at(j) = exp(_greedyScore.at(i).at(j)*scaleFactor);
 
-
             if(j == 0 || _greedyScore.at(i).at(j) < min) {
                 min = (double)_greedyScore.at(i).at(j);
             }
@@ -148,7 +147,7 @@ void Instance::computeGreedyScore() {
         }
 
         for(int j = 0; j < _nChar; j++) {
-            _greedyScore.at(i).at(j) = (_greedyScore.at(i).at(j)/max)*10.;
+            _greedyScore.at(i).at(j) = (_greedyScore.at(i).at(j)/max)*1.5;
         }
     }
 
