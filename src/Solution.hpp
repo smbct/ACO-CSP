@@ -35,6 +35,13 @@ class Solution {
         void setChar(int pos, int character);
 
         /**
+         * \brief set the character of the solution in position pos and update the cost directly (for the local search)
+         * \param pos the position
+         * \param character the character
+         */
+        void setCharUpdate(int pos, int character);
+
+        /**
          * \brief return a character at a given position
          * \param pos the position
          * \return the character at position pos
@@ -63,6 +70,11 @@ class Solution {
          */
         void generateRandom();
 
+        /**
+         * \brief perform a local search on the solution
+         */
+        void localSearch();
+
 
     private: // private methods
 
@@ -79,7 +91,7 @@ class Solution {
         std::vector<int> _solution; // a solution for the problem
         int _cost; // cost of the solution
 
-        std::vector<std::vector<int>> _distances; // matrice of the sub-distances from the solution to the strings of the problem
+        std::vector<int> _distances; // vector of the distances from the solution to the strings of the problem
         int _maxString; // index of the instance string for which the distance is maximum
 
         bool _updateCost; // indicates if the cost must be recomputed

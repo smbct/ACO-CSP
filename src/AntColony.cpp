@@ -22,7 +22,7 @@ _nAnts(10), _population(_nAnts, instance)
     _alpha = 1.207;
     _beta = 4.67;
 
-    _rho = 0.08;
+    _rho = 0.078;
 
     _nItMax = 1000;
 
@@ -33,7 +33,7 @@ void AntColony::initPheromones() {
 
     for(int i = 0; i < _instance.stringLength(); i++) {
         for(int j = 0; j < _instance.nChar(); j++) {
-            _pheromones.at(i).at(j) = 100.;
+            _pheromones.at(i).at(j) = 1e7;
         }
     }
 
@@ -74,7 +74,6 @@ void AntColony::buildSolution(Solution& solution) {
         int character = randomChoice(i);
         solution.setChar(i, character);
     }
-
 }
 
 
