@@ -15,8 +15,8 @@ int main(int argc, char* argv[]) {
 
 
     Instance inst;
-    // inst.load("instances/2-30-10000-1-9.csp");
-    inst.load("instances/4-20-10000-1-2.csp");
+    inst.load("instances/2-30-10000-1-9.csp");
+    // inst.load("instances/4-20-10000-1-2.csp");
     // inst.load("instances/20-50-10000-1-1.csp");
     // inst.load("src/toy.csp");
 
@@ -34,8 +34,8 @@ int main(int argc, char* argv[]) {
 
     cout << "best: " << sol.cost() << endl;
 
-    // int opt = 4278;
-    int opt = 6312;
+    int opt = 4278;
+    // int opt = 6312;
     // int opt = 8835;
     double rpd = (((double)sol.cost() - (double)opt)/(double)opt)*100.;
 

@@ -19,10 +19,10 @@ _probas(instance.stringLength(), vector<double>(instance.nChar(), 0.)),
 _nAnts(10), _population(_nAnts, instance)
 {
 
-    _alpha = 1.205;
-    _beta = 4.7;
+    _alpha = 1.207;
+    _beta = 4.67;
 
-    _rho = 0.12;
+    _rho = 0.08;
 
     _nItMax = 1000;
 
