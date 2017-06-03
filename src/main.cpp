@@ -33,6 +33,9 @@ int main(int argc, char* argv[]) {
 
 
     cout << "best: " << sol.cost() << endl;
+    sol.localSearch();
+    cout << "best + local search: " << sol.cost() << endl;
+
 
     int opt = 4278;
     // int opt = 6312;
@@ -43,9 +46,15 @@ int main(int argc, char* argv[]) {
 
     sol.generateRandom();
     cout << "random sol: " << sol.cost() << endl;
+    sol.localSearch();
+    cout << "generate random + local search: " << sol.cost() << endl;
 
     sol.generateGreedy();
     cout << "greedy sol: " << sol.cost() << endl;
+
+    sol.localSearch();
+    cout << "greedy sol + local search: " << sol.cost() << endl;
+
 
     // sf::RenderWindow window(sf::VideoMode(1024, 768, 32), "test");
     //

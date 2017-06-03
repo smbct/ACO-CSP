@@ -18,7 +18,7 @@ _instance(instance), _updateCost(true) {
     _solution.resize(instance.stringLength(), -1);
     _cost = -1;
 
-    _distances.resize(instance.nString(), vector<int>(instance.stringLength(), -1));
+    _distances.resize(instance.nString(), 0);
     _maxString = -1;
 
 }
@@ -30,24 +30,21 @@ void Solution::recomputeDistances() {
 
     _cost = -1;
 
+    fill(_distances.begin(), _distances.end(), 0);
+
     // for all strings of the instance, compute the hamming distance to the solution
     for(unsigned int i = 0; i < _distances.size(); i++) {
-
         vector<int>& comp = _instance.getString(i);
-
-        for(unsigned int j = 0; j < _distances.at(i).size(); j++) {
-
-            int sum = 0;
-            if(j > 0) {
-                sum = _distances.at(i).at(j-1);
+        for(int j = 0; j < _instance.stringLength(); j++) {
+            // if the character is different, the distance is bigger
+            if(comp.at(j) != _solution.at(j)) {
+                _distances.at(i) ++;
             }
-            _distances.at(i).at(j) = sum + (comp.at(j) == _solution.at(j) ? 0 : 1);
-
         }
 
         // update the biggest distance
-        if(_distances.at(i).back() > _cost) {
-            _cost = _distances.at(i).back();
+        if(i == 0 || _distances.at(i) > _cost) {
+            _cost = _distances.at(i);
             _maxString = i;
         }
 
@@ -70,6 +67,32 @@ void Solution::display() {
 void Solution::setChar(int pos, int character) {
     _solution.at(pos) = character;
     _updateCost = true;
+}
+
+/*----------------------------------------------------------------------------*/
+void Solution::setCharUpdate(int pos, int character) {
+
+    for(int i = 0; i < _instance.nString(); i++) {
+
+        // the previous choice is canceled
+        if(_instance.getString(i).at(pos) != _solution.at(pos)) {
+            _distances.at(i) --;
+        }
+
+        if(_instance.getString(i).at(pos) != character) {
+            _distances.at(i) ++;
+        }
+
+        // the max distance is updated
+        if(i == 0 || _distances.at(i) > _cost) {
+            _cost = _distances.at(i);
+            _maxString = i;
+        }
+
+    }
+
+    _solution.at(pos) = character;
+
 }
 
 /*----------------------------------------------------------------------------*/
@@ -122,6 +145,51 @@ void Solution::generateRandom() {
 
     for(int i = 0; i < _instance.stringLength(); i++) {
         setChar(i, (int)floor(Utils::randomNumber()*_instance.nChar()));
+    }
+
+}
+
+/*----------------------------------------------------------------------------*/
+void Solution::localSearch() {
+
+    bool stop = false;
+
+    int bestPos = -1;
+    int bestChar = -1;
+    int bestCost = -1;
+
+    while(!stop) {
+
+        // for all positions, all the porribles characters are tried
+        for(int i = 0; i < _instance.stringLength(); i++) {
+
+            int actualChoice = _solution.at(i);
+
+            for(int j = 0; j < _instance.nChar(); j++) {
+                if(j != actualChoice) {
+
+                    setCharUpdate(i, j);
+                    // if the solution is better, the previously best found is replaced
+                    if(bestCost == -1 || cost() < bestCost) {
+                        bestCost = cost();
+                        bestPos = i;
+                        bestChar = j;
+                    }
+
+                }
+            }
+            // the move is canceled
+            setCharUpdate(i, actualChoice);
+
+        }
+
+        // if the best move improves the result, it is applied
+        if(bestCost < cost()) {
+            setCharUpdate(bestPos, bestChar);
+        } else { // otherwise, the local search is stopped
+            stop = true;
+        }
+
     }
 
 }
