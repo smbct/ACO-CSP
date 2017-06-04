@@ -4,11 +4,8 @@ CFLAGS= -std=c++11 -pedantic -Wfatal-errors -Wconversion -Wredundant-decls -Wsha
 
 OBJECTS_FILES= src/main.o src/Instance.o src/Solution.o src/AntColony.o src/MaxMin.o src/ACS.o src/Utils.o
 
-LIB_SFML = ../library/SFML-2.4.2/lib
-INC_SFML = ../library/SFML-2.4.2/include
-
 aco_csp: $(OBJECTS_FILES)
-	$(CC) $(CFLAGS) $(OBJECTS_FILES) -I $(LIB_SFML) -L $(INC_SFML) -lsfml-graphics -lsfml-window -lsfml-system -o aco_csp
+	$(CC) $(CFLAGS) $(OBJECTS_FILES) -o aco_csp
 
 # object files compilation
 %.o: %.cpp %.h

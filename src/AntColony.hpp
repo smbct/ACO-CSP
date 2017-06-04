@@ -27,7 +27,7 @@ class AntColony {
          * \brief solve the CSP problem
          * \param best the best solution found
          */
-        void solve(Solution& best);
+        virtual void solve(Solution& best);
 
         /**
          * \brief display the pheromone matrix of the algorithm
@@ -45,12 +45,12 @@ class AntColony {
          * \brief build a new solution based on the pheromones and the heuristic information
          * \param solution the solution built
          */
-        void buildSolution(Solution& solution);
+        virtual void buildSolution(Solution& solution);
 
         /**
          * \brief compute the probabilites for each decision of the artifical ants
          */
-        void computeProbas();
+        virtual void computeProbas();
 
         /**
          * \brief make a random choice based on _probas for a character in a given position

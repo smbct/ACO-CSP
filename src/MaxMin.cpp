@@ -16,12 +16,12 @@ AntColony(instance)
 
     _nItMax = 1000;
 
-    _alpha = 1.3;
-    _beta = 4.;
+    _alpha = 1.6;
+    _beta = 2.;
 
     _nAnts = 10;
 
-    _a = 5.;
+    _a = 1000.;
     _maxPheromone = 1e20;
     _minPheromone = _maxPheromone/_a;
     _rho = 0.4;
@@ -45,8 +45,8 @@ void MaxMin::initPheromones() {
 void MaxMin::depositPheromones(Solution& ant) {
 
     for(int j = 0; j < _instance.stringLength(); j++) {
-        _pheromones.at(j).at(ant.getChar(j)) += 1./(double)ant.cost();
-        // _pheromones.at(j).at(ant.getChar(j)) += 1. - (double)ant.cost()/(double)_instance.stringLength();
+        // _pheromones.at(j).at(ant.getChar(j)) += 1./(double)ant.cost();
+        _pheromones.at(j).at(ant.getChar(j)) += 1. - (double)ant.cost()/(double)_instance.stringLength();
 
         // check pheromones bounds
         if(_pheromones.at(j).at(ant.getChar(j)) > _maxPheromone) {
@@ -63,7 +63,8 @@ void MaxMin::depositPheromones(Solution& ant) {
 /*----------------------------------------------------------------------------*/
 void MaxMin::updateBounds(Solution& best) {
 
-    _maxPheromone = 1./(_rho*(double)best.cost());
+    // _maxPheromone = 1./(_rho*(double)best.cost());
+    _maxPheromone = 1.- (_rho* ((double)best.cost()/_instance.stringLength()));
     _minPheromone = _maxPheromone/_a;
 
 }

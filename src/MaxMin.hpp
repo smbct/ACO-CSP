@@ -26,7 +26,7 @@ class MaxMin : public AntColony {
          * \brief solve the CSP problem
          * \param best the best solution found
          */
-        void solve(Solution& best);
+        virtual void solve(Solution& best);
 
     protected: // protected methods
 
