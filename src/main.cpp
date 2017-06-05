@@ -41,6 +41,16 @@ int main(int argc, char* argv[]) {
         }
         cout << "best: " << sol.cost() << endl;
 
+        // double up = 6312.;
+        double up = 4277.;
+
+
+        double rpd = ((sol.cost()-up)/up)*100.;
+        cout << "rpd: " << rpd << endl;
+
+        sol.generateGreedy();
+        cout << "greedy: " << sol.cost() << endl;
+
         delete colony;
     } else {
         parameters.displayHelp();
