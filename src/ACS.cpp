@@ -17,16 +17,16 @@ ACS::ACS(Instance& instance) :
 AntColony(instance)
 {
 
-    _initPheromone = 5;
-    _q0 = 0.7;
+    _initPheromone = 0.026;
+    _q0 = 0.6;
 
-    _alpha = 2.4;
-    _beta = 2.;
+    _alpha = 1.2;
+    _beta = 2.5;
 
     _nAnts = 10;
-    _nItMax = 1000;
+    _nItMax = 500;
 
-    _rho = 0.05;
+    _rho = 0.015;
 
     _population.resize(_nAnts, instance);
 
@@ -45,7 +45,7 @@ AntColony(instance, parameters), _bestExpl(_instance.stringLength())
 void ACS::depositPheromones(Solution& ant) {
 
     for(int j = 0; j < _instance.stringLength(); j++) {
-        _pheromones.at(j).at(ant.getChar(j)) += 1. - (double)ant.cost()/(double)_instance.stringLength();
+        _pheromones.at(j).at(ant.getChar(j)) += _rho*(1. - (double)ant.cost()/(double)_instance.stringLength());
     }
 
 }

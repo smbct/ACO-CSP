@@ -14,18 +14,18 @@ MaxMin::MaxMin(Instance& instance) :
 AntColony(instance)
 {
 
-    _nItMax = 1000;
+    _nItMax = 500;
 
-    _alpha = 1.6;
+    _alpha = 1.8;
     _beta = 2.;
 
     _nAnts = 10;
 
-    _a = 1000.;
+    _a = 60.;
     _maxPheromone = 1e20;
     _minPheromone = _maxPheromone/_a;
-    _rho = 0.4;
-    _nItConverge = (int)((double)_nItMax*0.18);
+    _rho = 0.12;
+    _nItConverge = (int)((double)_nItMax*0.16);
 
     _population.resize(_nAnts, instance);
 }

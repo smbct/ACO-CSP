@@ -17,14 +17,14 @@ _probas(instance.stringLength(), vector<double>(instance.nChar(), 0.)),
 _nAnts(10), _population(_nAnts, instance)
 {
 
-    _alpha = 1.105;
-    _beta = 4.67;
+    _alpha = 1.4;
+    _beta = 2.;
 
-    _rho = 0.078;
+    _rho = 0.009;
 
-    _nItMax = 1000;
+    _nItMax = 500;
 
-    _initPheromone = 1e7;
+    _initPheromone = 100.;
 
 }
 

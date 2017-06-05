@@ -105,28 +105,28 @@ void Utils::Parameters::defaultParameters() {
 
     if(algorithm == Utils::AntColonyAlgo) {
         nAnts = 10;
-        alpha = 1.105;
-        beta = 4.67;
-        rho = 0.078;
-        nIt = 1000;
-        initPheromone = 1e7;
+        alpha = 1.4;
+        beta = 2.;
+        rho = 0.009;
+        nIt = 500;
+        initPheromone = 100.;
     } else if(algorithm == Utils::MaxMin) {
         nAnts = 10;
-        nIt = 1000;
-        alpha = 1.6;
+        nIt = 500;
+        alpha = 1.8;
         beta = 2.;
-        a = 1000.;
+        a = 60.;
         initPheromone = 1e20;
-        rho = 0.4;
+        rho = 0.12;
         convRate = 0.16;
     } else if(algorithm == Utils::AntColonySystem) {
-        initPheromone = 5;
-        q0 = 0.7;
-        alpha = 2.4;
-        beta = 2.;
+        initPheromone = 0.026;
+        q0 = 0.6;
+        alpha = 1.2;
+        beta = 2.5;
         nAnts = 10;
-        nIt = 1000;
-        rho = 0.05;
+        nIt = 500;
+        rho = 0.015;
     }
 
 }
@@ -154,13 +154,15 @@ void Utils::Parameters::display() {
     cout << "\t- alpha: " << alpha << endl;
     cout << "\t- beta: " << beta << endl;
     cout << "\t- rho: " << rho << endl;
+    if(algorithm == Utils::AntColonySystem || algorithm == Utils::AntColonyAlgo) {
+        cout << "\t- pheromones at the begining: " << initPheromone << endl;
+    }
     cout << endl;
     if(algorithm == MaxMin) {
         cout << "\t- a (pheromone lower bound): " << a << endl;
         cout << "\t- pheromones re-initalised after " << convRate*100 << "% of the budget" << endl;
     } else if(algorithm == AntColonySystem) {
         cout << "\t- probability of choosing the intensification rule: " << q0 << endl;
-        cout << "\t- pheromones at the begining: " << initPheromone << endl;
     }
 }
 
