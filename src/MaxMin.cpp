@@ -30,6 +30,16 @@ AntColony(instance)
     _population.resize(_nAnts, instance);
 }
 
+MaxMin::MaxMin(Instance& instance, Utils::Parameters& parameters):
+AntColony(instance, parameters)
+{
+    _a = parameters.a;
+    _nItConverge = (int)((double)_nItMax*parameters.convRate);
+    _maxPheromone = 1e20;
+    _minPheromone = _maxPheromone/_a;
+}
+
+
 /*----------------------------------------------------------------------------*/
 void MaxMin::initPheromones() {
 
@@ -92,6 +102,8 @@ void MaxMin::checkBounds() {
 
 /*----------------------------------------------------------------------------*/
 void MaxMin::solve(Solution& best) {
+
+    cout << "Max Min ant system" << endl;
 
     bool init = false;
     int nIt = 0;

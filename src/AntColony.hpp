@@ -7,6 +7,7 @@
 #define ANT_COLONY_HPP
 
 #include "Solution.hpp"
+#include "Utils.hpp"
 #include <vector>
 
 /**
@@ -24,6 +25,12 @@ class AntColony {
         AntColony(Instance& instance);
 
         /**
+         * \brief constructor
+         * \param parameters the parameters of the algorithm
+         */
+        AntColony(Instance& instance, Utils::Parameters& parameters);
+
+        /**
          * \brief solve the CSP problem
          * \param best the best solution found
          */
@@ -38,6 +45,11 @@ class AntColony {
          * \brief display the probabilities matrix of the algorithm
          */
         void displayProbas();
+
+        /**
+         * \brief default destructor
+         */
+        virtual ~AntColony();
 
     protected: // protected methods
 
