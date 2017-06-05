@@ -53,11 +53,11 @@ void Utils::Parameters::extract(int argc, char* argv[]) {
             stream >> seed;
         } else if(str == "--localSearch") {
             localSearch = true;
-        } else if(str == "--nAnts") {
+        } else if(str == "--ants") {
             i ++;
             istringstream stream(argv[i]);
             stream >> nAnts;
-        } else if(str == "--nIt") {
+        } else if(str == "--iterations") {
             i ++;
             istringstream stream(argv[i]);
             stream >> nIt;
@@ -169,7 +169,7 @@ void Utils::Parameters::display() {
 /*----------------------------------------------------------------------------*/
 void Utils::Parameters::displayHelp() {
 
-    cout << "*******************HELP*******************" << endl;
+    cout << "............................Usage................................" << endl;
     cout << "Command line parameters: " << endl << endl << endl;
 
     cout << "Meta parameters: " << endl;
@@ -181,11 +181,11 @@ void Utils::Parameters::displayHelp() {
     cout << "\t--help                       ) if specified, this help is shown" << endl;
 
     cout << endl << endl << "General ant colony parameters: " << endl;
-    cout << "\t--nAnts <int>                ) number of artifical ants in the colony" << endl;
-    cout << "\t--nIt <int>                  ) maximum number of iterations allowed" << endl;
+    cout << "\t--ants <int>                 ) number of artifical ants in the colony" << endl;
+    cout << "\t--iterations <int>           ) maximum number of iterations allowed" << endl;
     cout << "\t--alpha <float>              ) alpha parameter, strength of the pheromone information" << endl;
     cout << "\t--beta <float>               ) beta parameter, strength of the heuristic information" << endl;
-    cout << "\t--rho <float<                ) percentage of the pheromone evaporation (between 0 and 1)" << endl;
+    cout << "\t--rho <float>                ) percentage of the pheromone evaporation (between 0 and 1)" << endl;
     cout << "\t--initialPheromone <float>   ) initial value of the pheromones" << endl;
 
     cout << endl << endl << "Specific Max Min algorihm parameters: " << endl;
@@ -195,4 +195,6 @@ void Utils::Parameters::displayHelp() {
     cout << endl << endl << "Specific Ant Colony System algorihm parameters: " << endl;
     cout << "\t--q0 <float>                 ) probability of chosing the intensification rule (decision which maximizes phero*heuristic^beta)" << endl;
     cout << endl << endl << endl;
+    cout << "Example: ./aco_csp --instance instances/2-30-10000-1-9.csp --algo MaxMin --default --iterations 1 --ants 50" << endl << endl << endl;
+
 }
