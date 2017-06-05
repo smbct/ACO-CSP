@@ -1,5 +1,3 @@
-#!/bin/bash
-
 function save {
 
     str=$(cat outputACS)
@@ -7,35 +5,44 @@ function save {
 
     best=$(printf "$str" | grep -o -E 'best: [-+0-9.e]+' | cut -d ' ' -f2 )
 
-    printf "$1;$best\n" >> $2
+    printf ";$best" >> $2
 
 }
 
 function run {
 
+    name="ACS/csp-ACS.txt"
+    rm $name
+
+    printf "instance;best" >> $name
+    # all the seeds
     for i in ${seed[@]}
     do
+        printf ";$i" >> $name
+    done
+    printf "\n" >> $name
 
-        name="ACS/csp-ACS-$i.txt"
-        rm $name
+    for f in ../instances/*.csp
+    do
 
-        printf "instance;best\n" >> $name
+        # keep only the name of the instance (not "instances/")
+        a=$(printf "$f" | grep -o -E 'instances/.*' | cut -d '/' -f2)
 
-        for f in ../instances/*.csp
+        # print the instance into the file
+        printf "$a" >> $name
+
+        for i in ${seed[@]}
         do
-            # keep only the name of the instance (not "instances/")
-            a=$(printf "$f" | grep -o -E 'instances/.*' |cut -d '/' -f2)
-
-            ./../aco_csp "--instance" $f "--algo" "ACS" "--seed" $i "--default" > outputACS
+            ./../aco_csp "--instance" $f "--algo" "ACS" "--seed" $i "--default" "--nIt" "1" > outputACS
             # cat outputMaxMin
             save $a $name
         done
+        printf "\n" >> $name
     done
 
 }
 
 declare -a seed=("123" "234" "345" "456" "567" "789" "8910" "91011" "101112" "111213")
-
 
 run
 

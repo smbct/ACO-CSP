@@ -7,29 +7,39 @@ function save {
 
     best=$(printf "$str" | grep -o -E 'best: [-+0-9.e]+' | cut -d ' ' -f2 )
 
-    printf "$1;$best\n" >> $2
+    printf ";$best" >> $2
 
 }
 
 function run {
 
+    name="MaxMin/csp-MaxMin.txt"
+    rm $name
+
+    printf "instance;best" >> $name
+    # all the seeds
     for i in ${seed[@]}
     do
+        printf ";$i" >> $name
+    done
+    printf "\n" >> $name
 
-        name="MaxMin/csp-MaxMin-$i.txt"
-        rm $name
+    for f in ../instances/*.csp
+    do
 
-        printf "instance;best\n" >> $name
+        # keep only the name of the instance (not "instances/")
+        a=$(printf "$f" | grep -o -E 'instances/.*' | cut -d '/' -f2)
 
-        for f in ../instances/*.csp
+        # print the instance into the file
+        printf "$a" >> $name
+
+        for i in ${seed[@]}
         do
-            # keep only the name of the instance (not "instances/")
-            a=$(printf "$f" | grep -o -E 'instances/.*' |cut -d '/' -f2)
-
-            ./../aco_csp "--instance" $f "--algo" "MaxMin" "--seed" $i "--default" > outputMaxMin
+            ./../aco_csp "--instance" $f "--algo" "MaxMin" "--seed" $i "--default" "--nIt" "1" > outputMaxMin
             # cat outputMaxMin
             save $a $name
         done
+        printf "\n" >> $name
     done
 
 }
