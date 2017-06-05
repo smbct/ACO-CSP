@@ -55,7 +55,6 @@ void MaxMin::initPheromones() {
 void MaxMin::depositPheromones(Solution& ant) {
 
     for(int j = 0; j < _instance.stringLength(); j++) {
-        // _pheromones.at(j).at(ant.getChar(j)) += 1./(double)ant.cost();
         _pheromones.at(j).at(ant.getChar(j)) += 1. - (double)ant.cost()/(double)_instance.stringLength();
 
         // check pheromones bounds
@@ -73,7 +72,6 @@ void MaxMin::depositPheromones(Solution& ant) {
 /*----------------------------------------------------------------------------*/
 void MaxMin::updateBounds(Solution& best) {
 
-    // _maxPheromone = 1./(_rho*(double)best.cost());
     _maxPheromone = 1.- (_rho* ((double)best.cost()/_instance.stringLength()));
     _minPheromone = _maxPheromone/_a;
 
@@ -102,8 +100,6 @@ void MaxMin::checkBounds() {
 
 /*----------------------------------------------------------------------------*/
 void MaxMin::solve(Solution& best) {
-
-    cout << "Max Min ant system" << endl;
 
     bool init = false;
     int nIt = 0;
@@ -141,7 +137,6 @@ void MaxMin::solve(Solution& best) {
         }
 
         if(nItRem <= 0) {
-            cout << "pheromone reinit" << endl;
             nItRem = _nItConverge;
             initPheromones();
         } else {
@@ -155,14 +150,8 @@ void MaxMin::solve(Solution& best) {
 
         computeProbas();
 
-        // cout << endl << endl;
-
         nIt ++;
         nItRem --;
     }
-
-    // displayPheromones();
-    cout << "max: " << _maxPheromone << endl;
-    cout << "min: " << _minPheromone << endl;
 
 }
