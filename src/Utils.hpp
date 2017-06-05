@@ -51,6 +51,11 @@ class Utils {
                 void display();
 
                 /**
+                 * \brief display the help
+                 */
+                void displayHelp();
+
+                /**
                  * \brief default parameters for ant algorithm chosen (best found)
                  */
                 void defaultParameters();
