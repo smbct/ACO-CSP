@@ -16,7 +16,18 @@ class ACS : public AntColony{
 
     public: // public methods
 
+        /**
+         * \brief constructor
+         * \param instance instance of the problem
+         */
         ACS(Instance& instance);
+
+        /**
+         * \brief constructor
+         * \param instance instance of the problem
+         * \param parameters parameters of the algorithm
+         */
+        ACS(Instance& instance, Utils::Parameters& parameters);
 
         /**
          * \brief solve the CSP problem

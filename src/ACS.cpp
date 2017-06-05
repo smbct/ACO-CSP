@@ -35,12 +35,18 @@ AntColony(instance)
 }
 
 /*----------------------------------------------------------------------------*/
+ACS::ACS(Instance& instance, Utils::Parameters& parameters) :
+AntColony(instance, parameters), _bestExpl(_instance.stringLength())
+{
+    _q0 = parameters.q0;
+}
+
+/*----------------------------------------------------------------------------*/
 void ACS::depositPheromones(Solution& ant) {
 
     for(int j = 0; j < _instance.stringLength(); j++) {
         // _pheromones.at(j).at(ant.getChar(j)) += _rho*(1. - (double)ant.cost()/(double)_instance.stringLength());
         _pheromones.at(j).at(ant.getChar(j)) += 1. - (double)ant.cost()/(double)_instance.stringLength();
-
     }
 
 }
@@ -95,6 +101,8 @@ void ACS::computeProbas() {
 
 /*----------------------------------------------------------------------------*/
 void ACS::solve(Solution& best) {
+
+    cout << "Ant Colony system" << endl;
 
     bool init = false;
     int nIt = 0;

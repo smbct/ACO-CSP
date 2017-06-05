@@ -5,29 +5,35 @@
 #include "AntColony.hpp"
 #include "MaxMin.hpp"
 #include "ACS.hpp"
+#include "Utils.hpp"
 
 using namespace std;
 
 int main(int argc, char* argv[]) {
 
-    srand(12345);
-    // srand(1);
+    Utils::Parameters parameters;
+    parameters.extract(argc, argv);
+    parameters.display();
 
+    srand(parameters.seed);
 
-    Instance inst;
-    inst.load("instances/2-30-10000-1-9.csp");
-    // inst.load("instances/4-20-10000-1-2.csp");
-    // inst.load("instances/20-50-10000-1-1.csp");
-    // inst.load("src/toy.csp");
+    Instance instance;
+    instance.load(parameters.instanceName);
 
-    // AntColony colony(inst);
-    // MaxMin colony(inst);
-    ACS colony(inst);
-    // colony.displayPheromones();
+    AntColony* colony = nullptr;
 
-    Solution sol(inst);
+    // select the chosen algorithm
+    if(parameters.algorithm == Utils::AntColonyAlgo) {
+        colony = new AntColony(instance, parameters);
+    } else if(parameters.algorithm == Utils::MaxMin) {
+        colony = new MaxMin(instance, parameters);
+    } else if(parameters.algorithm == Utils::AntColonySystem) {
+        colony = new ACS(instance, parameters);
+    }
 
-    colony.solve(sol);
+    Solution sol(instance);
+
+    colony->solve(sol);
     // colony.displayPheromones();
 
     // sol.display();
@@ -38,12 +44,12 @@ int main(int argc, char* argv[]) {
     cout << "best + local search: " << sol.cost() << endl;
 
 
-    int opt = 4278;
+    // int opt = 4278;
     // int opt = 6312;
     // int opt = 8835;
-    double rpd = (((double)sol.cost() - (double)opt)/(double)opt)*100.;
+    // double rpd = (((double)sol.cost() - (double)opt)/(double)opt)*100.;
 
-    cout << "rpd: " << rpd << endl;
+    // cout << "rpd: " << rpd << endl;
 
     sol.generateRandom();
     cout << "random sol: " << sol.cost() << endl;
@@ -56,22 +62,7 @@ int main(int argc, char* argv[]) {
     sol.localSearch();
     cout << "greedy sol + local search: " << sol.cost() << endl;
 
-
-    // sf::RenderWindow window(sf::VideoMode(1024, 768, 32), "test");
-    //
-    // while(window.isOpen()) {
-    //
-    //     sf::Event event;
-    //
-    //     while(window.pollEvent(event)) {
-    //
-    //         if(event.type == sf::Event::Closed) {
-    //             window.close();
-    //         }
-    //
-    //         window.display();
-    //     }
-    // }
+    delete colony;
 
     return 0;
 }

@@ -23,6 +23,13 @@ class MaxMin : public AntColony {
         MaxMin(Instance& instance);
 
         /**
+         * \brief costructor
+         * \param instance instance of the Closest String Problem
+         * \param parameters parameters of the algorithm
+         */
+        MaxMin(Instance& instance, Utils::Parameters& parameters);
+
+        /**
          * \brief solve the CSP problem
          * \param best the best solution found
          */

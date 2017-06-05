@@ -5,8 +5,6 @@
 
 #include "AntColony.hpp"
 
-#include "Utils.hpp"
-
 #include <iostream>
 #include <cmath>
 
@@ -28,6 +26,19 @@ _nAnts(10), _population(_nAnts, instance)
 
     _initPheromone = 1e7;
 
+}
+
+AntColony::AntColony(Instance& instance, Utils::Parameters& parameters):
+_instance(instance), _pheromones(instance.stringLength(), vector<double>(instance.nChar(), 0.)),
+_probas(instance.stringLength(), vector<double>(instance.nChar(), 0.))
+{
+    _nAnts = parameters.nAnts;
+    _population.resize(_nAnts, instance);
+    _alpha = parameters.alpha;
+    _beta = parameters.beta;
+    _rho = parameters.rho;
+    _nItMax = parameters.nIt;
+    _initPheromone = parameters.initPheromone;
 }
 
 /*----------------------------------------------------------------------------*/
@@ -150,6 +161,8 @@ void AntColony::depositPheromones(Solution& ant) {
 /*----------------------------------------------------------------------------*/
 void AntColony::solve(Solution& best) {
 
+    cout << "Ant Colony algorithm" << endl;
+
     bool init = false;
     int nbIt = 0;
 
@@ -186,5 +199,10 @@ void AntColony::solve(Solution& best) {
 
         nbIt ++;
     }
+
+}
+
+/*----------------------------------------------------------------------------*/
+AntColony::~AntColony() {
 
 }
