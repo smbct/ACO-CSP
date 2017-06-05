@@ -86,8 +86,9 @@ class AntColony {
         double _rho; // strength of the pheromones evaporation
         int _nAnts; // size of the population
         int _nItMax; // maximum number of iteration
+        double _initPheromone; // amount of pheromones at the begining
 
-        std::vector<Solution> _population; // population
+        std::vector<Solution> _population; // population of artificial ants
 };
 
 

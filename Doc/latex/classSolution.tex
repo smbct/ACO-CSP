@@ -1,0 +1,155 @@
+\hypertarget{classSolution}{}\section{Solution Class Reference}
+\label{classSolution}\index{Solution@{Solution}}
+
+
+class \hyperlink{classSolution}{Solution} representing a solution of the Closest String Problem  
+
+
+
+
+{\ttfamily \#include $<$Solution.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classSolution_a92768be65a979c8b7d827f97c69828ea}{Solution} (\hyperlink{classInstance}{Instance} \&instance)
+\begin{DoxyCompactList}\small\item\em constructor \end{DoxyCompactList}\item 
+void \hyperlink{classSolution_aa16aebd11ba7fbb4e12b3f9c33b06449}{display} ()\hypertarget{classSolution_aa16aebd11ba7fbb4e12b3f9c33b06449}{}\label{classSolution_aa16aebd11ba7fbb4e12b3f9c33b06449}
+
+\begin{DoxyCompactList}\small\item\em display the solution \end{DoxyCompactList}\item 
+void \hyperlink{classSolution_a2710e3de9dc541b3bee1e8d20ef6c05f}{set\+Char} (int pos, int character)
+\begin{DoxyCompactList}\small\item\em set the character of the solution in position pos \end{DoxyCompactList}\item 
+void \hyperlink{classSolution_ae39f3ff67a3c60fe069c1e1a379da4f2}{set\+Char\+Update} (int pos, int character)
+\begin{DoxyCompactList}\small\item\em set the character of the solution in position pos and update the cost directly (for the local search) \end{DoxyCompactList}\item 
+int \hyperlink{classSolution_a05ad223fd0a27d13647ca4683dc6017e}{get\+Char} (int pos)
+\begin{DoxyCompactList}\small\item\em return a character at a given position \end{DoxyCompactList}\item 
+int \hyperlink{classSolution_ac11feb04b156f545c83575ccbdf0b844}{cost} ()
+\begin{DoxyCompactList}\small\item\em return the cost of the solution \end{DoxyCompactList}\item 
+\hyperlink{classSolution}{Solution} \& \hyperlink{classSolution_a9eb108a1a1e74cd5fb4b30c341010a8e}{operator=} (const \hyperlink{classSolution}{Solution} \&solution)
+\begin{DoxyCompactList}\small\item\em copy operator \end{DoxyCompactList}\item 
+void \hyperlink{classSolution_a6597654674460f88d6486a82946cc6a8}{generate\+Greedy} ()\hypertarget{classSolution_a6597654674460f88d6486a82946cc6a8}{}\label{classSolution_a6597654674460f88d6486a82946cc6a8}
+
+\begin{DoxyCompactList}\small\item\em generate a greedy solution \end{DoxyCompactList}\item 
+void \hyperlink{classSolution_ac587e2dcb9dff4d09c32292c5fb0b378}{generate\+Random} ()\hypertarget{classSolution_ac587e2dcb9dff4d09c32292c5fb0b378}{}\label{classSolution_ac587e2dcb9dff4d09c32292c5fb0b378}
+
+\begin{DoxyCompactList}\small\item\em generate a random solution \end{DoxyCompactList}\item 
+void \hyperlink{classSolution_a90829cafa0361e324f2db197303c62e1}{local\+Search} ()\hypertarget{classSolution_a90829cafa0361e324f2db197303c62e1}{}\label{classSolution_a90829cafa0361e324f2db197303c62e1}
+
+\begin{DoxyCompactList}\small\item\em perform a local search on the solution \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+class \hyperlink{classSolution}{Solution} representing a solution of the Closest String Problem 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Solution@{Solution}!Solution@{Solution}}
+\index{Solution@{Solution}!Solution@{Solution}}
+\subsubsection[{\texorpdfstring{Solution(\+Instance \&instance)}{Solution(Instance &instance)}}]{\setlength{\rightskip}{0pt plus 5cm}Solution\+::\+Solution (
+\begin{DoxyParamCaption}
+\item[{{\bf Instance} \&}]{instance}
+\end{DoxyParamCaption}
+)}\hypertarget{classSolution_a92768be65a979c8b7d827f97c69828ea}{}\label{classSolution_a92768be65a979c8b7d827f97c69828ea}
+
+
+constructor 
+
+
+\begin{DoxyParams}{Parameters}
+{\em instance} & the instance of the C\+SP problem \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{Solution@{Solution}!cost@{cost}}
+\index{cost@{cost}!Solution@{Solution}}
+\subsubsection[{\texorpdfstring{cost()}{cost()}}]{\setlength{\rightskip}{0pt plus 5cm}int Solution\+::cost (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classSolution_ac11feb04b156f545c83575ccbdf0b844}{}\label{classSolution_ac11feb04b156f545c83575ccbdf0b844}
+
+
+return the cost of the solution 
+
+\begin{DoxyReturn}{Returns}
+the cost 
+\end{DoxyReturn}
+\index{Solution@{Solution}!get\+Char@{get\+Char}}
+\index{get\+Char@{get\+Char}!Solution@{Solution}}
+\subsubsection[{\texorpdfstring{get\+Char(int pos)}{getChar(int pos)}}]{\setlength{\rightskip}{0pt plus 5cm}int Solution\+::get\+Char (
+\begin{DoxyParamCaption}
+\item[{int}]{pos}
+\end{DoxyParamCaption}
+)}\hypertarget{classSolution_a05ad223fd0a27d13647ca4683dc6017e}{}\label{classSolution_a05ad223fd0a27d13647ca4683dc6017e}
+
+
+return a character at a given position 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & the position \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the character at position pos 
+\end{DoxyReturn}
+\index{Solution@{Solution}!operator=@{operator=}}
+\index{operator=@{operator=}!Solution@{Solution}}
+\subsubsection[{\texorpdfstring{operator=(const Solution \&solution)}{operator=(const Solution &solution)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Solution}\& Solution\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Solution} \&}]{solution}
+\end{DoxyParamCaption}
+)}\hypertarget{classSolution_a9eb108a1a1e74cd5fb4b30c341010a8e}{}\label{classSolution_a9eb108a1a1e74cd5fb4b30c341010a8e}
+
+
+copy operator 
+
+
+\begin{DoxyParams}{Parameters}
+{\em solution} & the solution to copy \\
+\hline
+\end{DoxyParams}
+\index{Solution@{Solution}!set\+Char@{set\+Char}}
+\index{set\+Char@{set\+Char}!Solution@{Solution}}
+\subsubsection[{\texorpdfstring{set\+Char(int pos, int character)}{setChar(int pos, int character)}}]{\setlength{\rightskip}{0pt plus 5cm}void Solution\+::set\+Char (
+\begin{DoxyParamCaption}
+\item[{int}]{pos, }
+\item[{int}]{character}
+\end{DoxyParamCaption}
+)}\hypertarget{classSolution_a2710e3de9dc541b3bee1e8d20ef6c05f}{}\label{classSolution_a2710e3de9dc541b3bee1e8d20ef6c05f}
+
+
+set the character of the solution in position pos 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & the position \\
+\hline
+{\em character} & the character \\
+\hline
+\end{DoxyParams}
+\index{Solution@{Solution}!set\+Char\+Update@{set\+Char\+Update}}
+\index{set\+Char\+Update@{set\+Char\+Update}!Solution@{Solution}}
+\subsubsection[{\texorpdfstring{set\+Char\+Update(int pos, int character)}{setCharUpdate(int pos, int character)}}]{\setlength{\rightskip}{0pt plus 5cm}void Solution\+::set\+Char\+Update (
+\begin{DoxyParamCaption}
+\item[{int}]{pos, }
+\item[{int}]{character}
+\end{DoxyParamCaption}
+)}\hypertarget{classSolution_ae39f3ff67a3c60fe069c1e1a379da4f2}{}\label{classSolution_ae39f3ff67a3c60fe069c1e1a379da4f2}
+
+
+set the character of the solution in position pos and update the cost directly (for the local search) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & the position \\
+\hline
+{\em character} & the character \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{Solution_8hpp}{Solution.\+hpp}\end{DoxyCompactItemize}

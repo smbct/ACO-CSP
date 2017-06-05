@@ -34,18 +34,6 @@ AntColony(instance)
 
 }
 
-
-/*----------------------------------------------------------------------------*/
-void ACS::initPheromones() {
-
-    // initialisation to the parameter
-    for(int i = 0; i < _instance.stringLength(); i++) {
-        for(int j = 0; j < _instance.nChar(); j++) {
-            _pheromones.at(i).at(j) = _initPheromone;
-        }
-    }
-}
-
 /*----------------------------------------------------------------------------*/
 void ACS::depositPheromones(Solution& ant) {
 

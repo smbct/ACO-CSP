@@ -1,0 +1,192 @@
+\hypertarget{classAntColony}{}\section{Ant\+Colony Class Reference}
+\label{classAntColony}\index{Ant\+Colony@{Ant\+Colony}}
+
+
+base class for ant colony metaheuristics for the Closest String Problem  
+
+
+
+
+{\ttfamily \#include $<$Ant\+Colony.\+hpp$>$}
+
+
+
+Inheritance diagram for Ant\+Colony\+:
+% FIG 0
+
+
+Collaboration diagram for Ant\+Colony\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classAntColony_a082dd31637cdb16ea30ae7d970acff90}{Ant\+Colony} (\hyperlink{classInstance}{Instance} \&instance)
+\begin{DoxyCompactList}\small\item\em constructor \end{DoxyCompactList}\item 
+virtual void \hyperlink{classAntColony_a2928867b4646afc1c3d553848ed093aa}{solve} (\hyperlink{classSolution}{Solution} \&best)
+\begin{DoxyCompactList}\small\item\em solve the C\+SP problem \end{DoxyCompactList}\item 
+virtual void \hyperlink{classAntColony_a1cc0338e6d7d5be3cc190b1d037b569e}{display\+Pheromones} ()\hypertarget{classAntColony_a1cc0338e6d7d5be3cc190b1d037b569e}{}\label{classAntColony_a1cc0338e6d7d5be3cc190b1d037b569e}
+
+\begin{DoxyCompactList}\small\item\em display the pheromone matrix of the algorithm \end{DoxyCompactList}\item 
+void \hyperlink{classAntColony_afe90d8ff57da5f0a7411b7a8c7f4b009}{display\+Probas} ()\hypertarget{classAntColony_afe90d8ff57da5f0a7411b7a8c7f4b009}{}\label{classAntColony_afe90d8ff57da5f0a7411b7a8c7f4b009}
+
+\begin{DoxyCompactList}\small\item\em display the probabilities matrix of the algorithm \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classAntColony_afdd84281a77faaaefcb452d2369926d4}{build\+Solution} (\hyperlink{classSolution}{Solution} \&solution)
+\begin{DoxyCompactList}\small\item\em build a new solution based on the pheromones and the heuristic information \end{DoxyCompactList}\item 
+virtual void \hyperlink{classAntColony_a88add29898beb8e99199700bd1af2e74}{compute\+Probas} ()\hypertarget{classAntColony_a88add29898beb8e99199700bd1af2e74}{}\label{classAntColony_a88add29898beb8e99199700bd1af2e74}
+
+\begin{DoxyCompactList}\small\item\em compute the probabilites for each decision of the artifical ants \end{DoxyCompactList}\item 
+int \hyperlink{classAntColony_a98842821d95984fcbe2606b74c827b47}{random\+Choice} (int pos)
+\begin{DoxyCompactList}\small\item\em make a random choice based on \+\_\+probas for a character in a given position \end{DoxyCompactList}\item 
+void \hyperlink{classAntColony_ab9d990e4de44baf962d959cac676f128}{evaporate\+Pheromone} ()\hypertarget{classAntColony_ab9d990e4de44baf962d959cac676f128}{}\label{classAntColony_ab9d990e4de44baf962d959cac676f128}
+
+\begin{DoxyCompactList}\small\item\em evaporate the artificial pheromones \end{DoxyCompactList}\item 
+virtual void \hyperlink{classAntColony_ae0a9eae45d8f8ef3cd0e29e4c70044e0}{deposit\+Pheromones} (\hyperlink{classSolution}{Solution} \&ant)
+\begin{DoxyCompactList}\small\item\em deposit pheromones \end{DoxyCompactList}\item 
+virtual void \hyperlink{classAntColony_a6b630369b5665552088ca28d11ef9c8d}{init\+Pheromones} ()\hypertarget{classAntColony_a6b630369b5665552088ca28d11ef9c8d}{}\label{classAntColony_a6b630369b5665552088ca28d11ef9c8d}
+
+\begin{DoxyCompactList}\small\item\em init the pheromone matrix \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classInstance}{Instance} \& {\bfseries \+\_\+instance}\hypertarget{classAntColony_a64fae61f3585bce39f18edcb513c28e8}{}\label{classAntColony_a64fae61f3585bce39f18edcb513c28e8}
+
+\item 
+std\+::vector$<$ std\+::vector$<$ double $>$ $>$ {\bfseries \+\_\+pheromones}\hypertarget{classAntColony_a0d2af45829aeb7bd19fc8f8741f32941}{}\label{classAntColony_a0d2af45829aeb7bd19fc8f8741f32941}
+
+\item 
+std\+::vector$<$ std\+::vector$<$ double $>$ $>$ {\bfseries \+\_\+probas}\hypertarget{classAntColony_ae285306ac1aaea3844448e8879a04bb0}{}\label{classAntColony_ae285306ac1aaea3844448e8879a04bb0}
+
+\item 
+double {\bfseries \+\_\+alpha}\hypertarget{classAntColony_ae9ff3102a578e730bdf16e4680d3280d}{}\label{classAntColony_ae9ff3102a578e730bdf16e4680d3280d}
+
+\item 
+double {\bfseries \+\_\+beta}\hypertarget{classAntColony_a109ba28344e92f638aabc7eb1bf4da9d}{}\label{classAntColony_a109ba28344e92f638aabc7eb1bf4da9d}
+
+\item 
+double {\bfseries \+\_\+rho}\hypertarget{classAntColony_aca1f3f8d4085e68b6fd8b12a71ea559c}{}\label{classAntColony_aca1f3f8d4085e68b6fd8b12a71ea559c}
+
+\item 
+int {\bfseries \+\_\+n\+Ants}\hypertarget{classAntColony_a76d71655f20d93f0915d8d939634e848}{}\label{classAntColony_a76d71655f20d93f0915d8d939634e848}
+
+\item 
+int {\bfseries \+\_\+n\+It\+Max}\hypertarget{classAntColony_aa4129fea711c1334358a5d4930dbe528}{}\label{classAntColony_aa4129fea711c1334358a5d4930dbe528}
+
+\item 
+double {\bfseries \+\_\+init\+Pheromone}\hypertarget{classAntColony_ab231303b4d50c579a545c32c2010e09a}{}\label{classAntColony_ab231303b4d50c579a545c32c2010e09a}
+
+\item 
+std\+::vector$<$ \hyperlink{classSolution}{Solution} $>$ {\bfseries \+\_\+population}\hypertarget{classAntColony_acfbcfba26264cc0b1a16e3940adb67d3}{}\label{classAntColony_acfbcfba26264cc0b1a16e3940adb67d3}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+base class for ant colony metaheuristics for the Closest String Problem 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Ant\+Colony@{Ant\+Colony}!Ant\+Colony@{Ant\+Colony}}
+\index{Ant\+Colony@{Ant\+Colony}!Ant\+Colony@{Ant\+Colony}}
+\subsubsection[{\texorpdfstring{Ant\+Colony(\+Instance \&instance)}{AntColony(Instance &instance)}}]{\setlength{\rightskip}{0pt plus 5cm}Ant\+Colony\+::\+Ant\+Colony (
+\begin{DoxyParamCaption}
+\item[{{\bf Instance} \&}]{instance}
+\end{DoxyParamCaption}
+)}\hypertarget{classAntColony_a082dd31637cdb16ea30ae7d970acff90}{}\label{classAntColony_a082dd31637cdb16ea30ae7d970acff90}
+
+
+constructor 
+
+
+\begin{DoxyParams}{Parameters}
+{\em instance} & instance of the C\+SP problem \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{Ant\+Colony@{Ant\+Colony}!build\+Solution@{build\+Solution}}
+\index{build\+Solution@{build\+Solution}!Ant\+Colony@{Ant\+Colony}}
+\subsubsection[{\texorpdfstring{build\+Solution(\+Solution \&solution)}{buildSolution(Solution &solution)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Ant\+Colony\+::build\+Solution (
+\begin{DoxyParamCaption}
+\item[{{\bf Solution} \&}]{solution}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{classAntColony_afdd84281a77faaaefcb452d2369926d4}{}\label{classAntColony_afdd84281a77faaaefcb452d2369926d4}
+
+
+build a new solution based on the pheromones and the heuristic information 
+
+
+\begin{DoxyParams}{Parameters}
+{\em solution} & the solution built \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \hyperlink{classACS_a934d186f6ad6b61e460722379fdf13f2}{A\+CS}.
+
+\index{Ant\+Colony@{Ant\+Colony}!deposit\+Pheromones@{deposit\+Pheromones}}
+\index{deposit\+Pheromones@{deposit\+Pheromones}!Ant\+Colony@{Ant\+Colony}}
+\subsubsection[{\texorpdfstring{deposit\+Pheromones(\+Solution \&ant)}{depositPheromones(Solution &ant)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Ant\+Colony\+::deposit\+Pheromones (
+\begin{DoxyParamCaption}
+\item[{{\bf Solution} \&}]{ant}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{classAntColony_ae0a9eae45d8f8ef3cd0e29e4c70044e0}{}\label{classAntColony_ae0a9eae45d8f8ef3cd0e29e4c70044e0}
+
+
+deposit pheromones 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ant} & the ant which deposits the pheromones \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \hyperlink{classMaxMin_a0426957fa02c8bf28d527bb1ee1519d3}{Max\+Min}, and \hyperlink{classACS_a13f9aa561242377d593f9ca5a8195715}{A\+CS}.
+
+\index{Ant\+Colony@{Ant\+Colony}!random\+Choice@{random\+Choice}}
+\index{random\+Choice@{random\+Choice}!Ant\+Colony@{Ant\+Colony}}
+\subsubsection[{\texorpdfstring{random\+Choice(int pos)}{randomChoice(int pos)}}]{\setlength{\rightskip}{0pt plus 5cm}int Ant\+Colony\+::random\+Choice (
+\begin{DoxyParamCaption}
+\item[{int}]{pos}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classAntColony_a98842821d95984fcbe2606b74c827b47}{}\label{classAntColony_a98842821d95984fcbe2606b74c827b47}
+
+
+make a random choice based on \+\_\+probas for a character in a given position 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & the position to make a choice in \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the choice made (character) 
+\end{DoxyReturn}
+\index{Ant\+Colony@{Ant\+Colony}!solve@{solve}}
+\index{solve@{solve}!Ant\+Colony@{Ant\+Colony}}
+\subsubsection[{\texorpdfstring{solve(\+Solution \&best)}{solve(Solution &best)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Ant\+Colony\+::solve (
+\begin{DoxyParamCaption}
+\item[{{\bf Solution} \&}]{best}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classAntColony_a2928867b4646afc1c3d553848ed093aa}{}\label{classAntColony_a2928867b4646afc1c3d553848ed093aa}
+
+
+solve the C\+SP problem 
+
+
+\begin{DoxyParams}{Parameters}
+{\em best} & the best solution found \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \hyperlink{classMaxMin_a27fd649b6f2efc343293d759ee6b5e9d}{Max\+Min}, and \hyperlink{classACS_a6629ce98a1027c8d548357c068291f7a}{A\+CS}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{AntColony_8hpp}{Ant\+Colony.\+hpp}\end{DoxyCompactItemize}

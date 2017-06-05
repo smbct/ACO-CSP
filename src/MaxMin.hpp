@@ -10,7 +10,7 @@
 
 /**
  * \class MaxMin
- * \brief class MaxMin: Max Min ant colony optimization metaheuristic for the Closes String Problem
+ * \brief class MaxMin: Max Min ant colony optimization metaheuristic for the Closest String Problem
  */
 class MaxMin : public AntColony {
 

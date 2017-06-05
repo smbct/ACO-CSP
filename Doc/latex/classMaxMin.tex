@@ -1,0 +1,111 @@
+\hypertarget{classMaxMin}{}\section{Max\+Min Class Reference}
+\label{classMaxMin}\index{Max\+Min@{Max\+Min}}
+
+
+class \hyperlink{classMaxMin}{Max\+Min}\+: Max Min ant colony optimization metaheuristic for the Closes String Problem  
+
+
+
+
+{\ttfamily \#include $<$Max\+Min.\+hpp$>$}
+
+
+
+Inheritance diagram for Max\+Min\+:
+% FIG 0
+
+
+Collaboration diagram for Max\+Min\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classMaxMin_a51241e59fae85aaa8fc1cc9a200422ba}{Max\+Min} (\hyperlink{classInstance}{Instance} \&instance)
+\begin{DoxyCompactList}\small\item\em costructor \end{DoxyCompactList}\item 
+virtual void \hyperlink{classMaxMin_a27fd649b6f2efc343293d759ee6b5e9d}{solve} (\hyperlink{classSolution}{Solution} \&best)
+\begin{DoxyCompactList}\small\item\em solve the C\+SP problem \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classMaxMin_a2d3a9fd991bc090d8b731c85f013edeb}{init\+Pheromones} ()\hypertarget{classMaxMin_a2d3a9fd991bc090d8b731c85f013edeb}{}\label{classMaxMin_a2d3a9fd991bc090d8b731c85f013edeb}
+
+\begin{DoxyCompactList}\small\item\em init the pheromone matrix \end{DoxyCompactList}\item 
+virtual void \hyperlink{classMaxMin_a0426957fa02c8bf28d527bb1ee1519d3}{deposit\+Pheromones} (\hyperlink{classSolution}{Solution} \&ant)
+\begin{DoxyCompactList}\small\item\em deposit pheromones \end{DoxyCompactList}\item 
+virtual void \hyperlink{classMaxMin_a6c9e927c48f3d91e2a84f2e4d2706b37}{update\+Bounds} (\hyperlink{classSolution}{Solution} \&best)\hypertarget{classMaxMin_a6c9e927c48f3d91e2a84f2e4d2706b37}{}\label{classMaxMin_a6c9e927c48f3d91e2a84f2e4d2706b37}
+
+\begin{DoxyCompactList}\small\item\em update pheromone bounds  best\+Ant the best solution so far \end{DoxyCompactList}\item 
+virtual void \hyperlink{classMaxMin_a67087a455729080bab2b12818a369241}{check\+Bounds} ()\hypertarget{classMaxMin_a67087a455729080bab2b12818a369241}{}\label{classMaxMin_a67087a455729080bab2b12818a369241}
+
+\begin{DoxyCompactList}\small\item\em check if the pheromones satisfy the bounds \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+class \hyperlink{classMaxMin}{Max\+Min}\+: Max Min ant colony optimization metaheuristic for the Closes String Problem 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Max\+Min@{Max\+Min}!Max\+Min@{Max\+Min}}
+\index{Max\+Min@{Max\+Min}!Max\+Min@{Max\+Min}}
+\subsubsection[{\texorpdfstring{Max\+Min(\+Instance \&instance)}{MaxMin(Instance &instance)}}]{\setlength{\rightskip}{0pt plus 5cm}Max\+Min\+::\+Max\+Min (
+\begin{DoxyParamCaption}
+\item[{{\bf Instance} \&}]{instance}
+\end{DoxyParamCaption}
+)}\hypertarget{classMaxMin_a51241e59fae85aaa8fc1cc9a200422ba}{}\label{classMaxMin_a51241e59fae85aaa8fc1cc9a200422ba}
+
+
+costructor 
+
+
+\begin{DoxyParams}{Parameters}
+{\em instance} & instance of the Closest String Problem \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{Max\+Min@{Max\+Min}!deposit\+Pheromones@{deposit\+Pheromones}}
+\index{deposit\+Pheromones@{deposit\+Pheromones}!Max\+Min@{Max\+Min}}
+\subsubsection[{\texorpdfstring{deposit\+Pheromones(\+Solution \&ant)}{depositPheromones(Solution &ant)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Max\+Min\+::deposit\+Pheromones (
+\begin{DoxyParamCaption}
+\item[{{\bf Solution} \&}]{ant}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{classMaxMin_a0426957fa02c8bf28d527bb1ee1519d3}{}\label{classMaxMin_a0426957fa02c8bf28d527bb1ee1519d3}
+
+
+deposit pheromones 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ant} & the ant which deposits the pheromones \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classAntColony_ae0a9eae45d8f8ef3cd0e29e4c70044e0}{Ant\+Colony}.
+
+\index{Max\+Min@{Max\+Min}!solve@{solve}}
+\index{solve@{solve}!Max\+Min@{Max\+Min}}
+\subsubsection[{\texorpdfstring{solve(\+Solution \&best)}{solve(Solution &best)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Max\+Min\+::solve (
+\begin{DoxyParamCaption}
+\item[{{\bf Solution} \&}]{best}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classMaxMin_a27fd649b6f2efc343293d759ee6b5e9d}{}\label{classMaxMin_a27fd649b6f2efc343293d759ee6b5e9d}
+
+
+solve the C\+SP problem 
+
+
+\begin{DoxyParams}{Parameters}
+{\em best} & the best solution found \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classAntColony_a2928867b4646afc1c3d553848ed093aa}{Ant\+Colony}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{MaxMin_8hpp}{Max\+Min.\+hpp}\end{DoxyCompactItemize}

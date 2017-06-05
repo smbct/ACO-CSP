@@ -1,6 +1,6 @@
 /**
  * \file ACS.hpp
- * \file definition of the class ACS (Ant Colony System)
+ * \brief definition of the class ACS (Ant Colony System)
  */
 
 #ifndef ACS_HPP
@@ -27,11 +27,6 @@ class ACS : public AntColony{
     protected: // protected methods
 
         /**
-         * \brief init the pheromone matrix
-         */
-        virtual void initPheromones();
-
-        /**
          * \brief deposit pheromones
          * \param ant the ant which deposits the pheromones
          */
@@ -56,8 +51,6 @@ class ACS : public AntColony{
         virtual void computeProbas();
 
     private: // private attributes
-
-        double _initPheromone; // amount of pheromones at the begining
 
         double _q0; // probability of exploitation
 
