@@ -1,0 +1,163 @@
+\hypertarget{classInstance}{}\section{Instance Class Reference}
+\label{classInstance}\index{Instance@{Instance}}
+
+
+manage an instance of the csp problem  
+
+
+
+
+{\ttfamily \#include $<$Instance.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classInstance_a399506c7e75ab9ab78fbc34a25932bbd}{Instance} ()\hypertarget{classInstance_a399506c7e75ab9ab78fbc34a25932bbd}{}\label{classInstance_a399506c7e75ab9ab78fbc34a25932bbd}
+
+\begin{DoxyCompactList}\small\item\em default constructor \end{DoxyCompactList}\item 
+bool \hyperlink{classInstance_aa0017965792e0bff1c4f3cb869d46ad2}{load} (std\+::string file\+Name)
+\begin{DoxyCompactList}\small\item\em load a instance of the C\+SP problem \end{DoxyCompactList}\item 
+void \hyperlink{classInstance_a490f1cebae4667a27477876199f5ec15}{display} ()\hypertarget{classInstance_a490f1cebae4667a27477876199f5ec15}{}\label{classInstance_a490f1cebae4667a27477876199f5ec15}
+
+\begin{DoxyCompactList}\small\item\em display the instance \end{DoxyCompactList}\item 
+int \hyperlink{classInstance_a992cdeb20875e5f10b287419f4f823e6}{string\+Length} ()
+\begin{DoxyCompactList}\small\item\em return the length of the strings \end{DoxyCompactList}\item 
+int \hyperlink{classInstance_ab6a079ab0d6cd972707e0cdaba39ab72}{n\+String} ()
+\begin{DoxyCompactList}\small\item\em number of strings of the problem \end{DoxyCompactList}\item 
+int \hyperlink{classInstance_a16331a1989225c4ef9795832799b6e39}{n\+Char} ()
+\begin{DoxyCompactList}\small\item\em number of characters of the alphabet \end{DoxyCompactList}\item 
+char \hyperlink{classInstance_ad0323372e38c51638710c108eb364581}{get\+Index\+Char} (int ind)
+\begin{DoxyCompactList}\small\item\em get the character represented by the index index \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \& \hyperlink{classInstance_a6f2f0722ff00af749303ab0ba2243bb4}{get\+String} (int ind)
+\begin{DoxyCompactList}\small\item\em access a string \end{DoxyCompactList}\item 
+double \hyperlink{classInstance_a341b233c506cde815d5403976fa41aff}{greedy\+Score} (int pos, int ch)
+\begin{DoxyCompactList}\small\item\em returns the greedy score of a character for a given position \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+manage an instance of the csp problem 
+
+\subsection{Member Function Documentation}
+\index{Instance@{Instance}!get\+Index\+Char@{get\+Index\+Char}}
+\index{get\+Index\+Char@{get\+Index\+Char}!Instance@{Instance}}
+\subsubsection[{\texorpdfstring{get\+Index\+Char(int ind)}{getIndexChar(int ind)}}]{\setlength{\rightskip}{0pt plus 5cm}char Instance\+::get\+Index\+Char (
+\begin{DoxyParamCaption}
+\item[{int}]{ind}
+\end{DoxyParamCaption}
+)}\hypertarget{classInstance_ad0323372e38c51638710c108eb364581}{}\label{classInstance_ad0323372e38c51638710c108eb364581}
+
+
+get the character represented by the index index 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ind} & the index that represents the character in the problem \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the character 
+\end{DoxyReturn}
+\index{Instance@{Instance}!get\+String@{get\+String}}
+\index{get\+String@{get\+String}!Instance@{Instance}}
+\subsubsection[{\texorpdfstring{get\+String(int ind)}{getString(int ind)}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$int$>$\& Instance\+::get\+String (
+\begin{DoxyParamCaption}
+\item[{int}]{ind}
+\end{DoxyParamCaption}
+)}\hypertarget{classInstance_a6f2f0722ff00af749303ab0ba2243bb4}{}\label{classInstance_a6f2f0722ff00af749303ab0ba2243bb4}
+
+
+access a string 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ind} & the index of the string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a reference toward a string 
+\end{DoxyReturn}
+\index{Instance@{Instance}!greedy\+Score@{greedy\+Score}}
+\index{greedy\+Score@{greedy\+Score}!Instance@{Instance}}
+\subsubsection[{\texorpdfstring{greedy\+Score(int pos, int ch)}{greedyScore(int pos, int ch)}}]{\setlength{\rightskip}{0pt plus 5cm}double Instance\+::greedy\+Score (
+\begin{DoxyParamCaption}
+\item[{int}]{pos, }
+\item[{int}]{ch}
+\end{DoxyParamCaption}
+)}\hypertarget{classInstance_a341b233c506cde815d5403976fa41aff}{}\label{classInstance_a341b233c506cde815d5403976fa41aff}
+
+
+returns the greedy score of a character for a given position 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & the position in the strings \\
+\hline
+{\em ch} & the character \\
+\hline
+\end{DoxyParams}
+\index{Instance@{Instance}!load@{load}}
+\index{load@{load}!Instance@{Instance}}
+\subsubsection[{\texorpdfstring{load(std\+::string file\+Name)}{load(std::string fileName)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Instance\+::load (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{file\+Name}
+\end{DoxyParamCaption}
+)}\hypertarget{classInstance_aa0017965792e0bff1c4f3cb869d46ad2}{}\label{classInstance_aa0017965792e0bff1c4f3cb869d46ad2}
+
+
+load a instance of the C\+SP problem 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Name} & the name of the file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true iff the instance has been opened without troubles 
+\end{DoxyReturn}
+\index{Instance@{Instance}!n\+Char@{n\+Char}}
+\index{n\+Char@{n\+Char}!Instance@{Instance}}
+\subsubsection[{\texorpdfstring{n\+Char()}{nChar()}}]{\setlength{\rightskip}{0pt plus 5cm}int Instance\+::n\+Char (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classInstance_a16331a1989225c4ef9795832799b6e39}{}\label{classInstance_a16331a1989225c4ef9795832799b6e39}
+
+
+number of characters of the alphabet 
+
+\begin{DoxyReturn}{Returns}
+the number of character 
+\end{DoxyReturn}
+\index{Instance@{Instance}!n\+String@{n\+String}}
+\index{n\+String@{n\+String}!Instance@{Instance}}
+\subsubsection[{\texorpdfstring{n\+String()}{nString()}}]{\setlength{\rightskip}{0pt plus 5cm}int Instance\+::n\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classInstance_ab6a079ab0d6cd972707e0cdaba39ab72}{}\label{classInstance_ab6a079ab0d6cd972707e0cdaba39ab72}
+
+
+number of strings of the problem 
+
+\begin{DoxyReturn}{Returns}
+number of strings of the problem 
+\end{DoxyReturn}
+\index{Instance@{Instance}!string\+Length@{string\+Length}}
+\index{string\+Length@{string\+Length}!Instance@{Instance}}
+\subsubsection[{\texorpdfstring{string\+Length()}{stringLength()}}]{\setlength{\rightskip}{0pt plus 5cm}int Instance\+::string\+Length (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classInstance_a992cdeb20875e5f10b287419f4f823e6}{}\label{classInstance_a992cdeb20875e5f10b287419f4f823e6}
+
+
+return the length of the strings 
+
+\begin{DoxyReturn}{Returns}
+the length of the strings 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{Instance_8hpp}{Instance.\+hpp}\end{DoxyCompactItemize}

@@ -26,6 +26,8 @@ _nAnts(10), _population(_nAnts, instance)
 
     _nItMax = 1000;
 
+    _initPheromone = 1e7;
+
 }
 
 /*----------------------------------------------------------------------------*/
@@ -33,7 +35,7 @@ void AntColony::initPheromones() {
 
     for(int i = 0; i < _instance.stringLength(); i++) {
         for(int j = 0; j < _instance.nChar(); j++) {
-            _pheromones.at(i).at(j) = 1e7;
+            _pheromones.at(i).at(j) = _initPheromone;
         }
     }
 

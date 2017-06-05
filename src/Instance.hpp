@@ -1,6 +1,6 @@
 /**
  * \file Instance.hpp
- * \file declaration of an Instance class
+ * \brief declaration of an Instance class
  */
 
 #ifndef INSTANCE_HPP

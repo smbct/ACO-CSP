@@ -1,0 +1,130 @@
+\hypertarget{classACS}{}\section{A\+CS Class Reference}
+\label{classACS}\index{A\+CS@{A\+CS}}
+
+
+class \hyperlink{classACS}{A\+CS} for the Ant Colony System metaheuristic  
+
+
+
+
+{\ttfamily \#include $<$A\+C\+S.\+hpp$>$}
+
+
+
+Inheritance diagram for A\+CS\+:
+% FIG 0
+
+
+Collaboration diagram for A\+CS\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries A\+CS} (\hyperlink{classInstance}{Instance} \&instance)\hypertarget{classACS_aaa5e05d45ead3655754aa7df3c0e005c}{}\label{classACS_aaa5e05d45ead3655754aa7df3c0e005c}
+
+\item 
+virtual void \hyperlink{classACS_a6629ce98a1027c8d548357c068291f7a}{solve} (\hyperlink{classSolution}{Solution} \&best)
+\begin{DoxyCompactList}\small\item\em solve the C\+SP problem \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classACS_a13f9aa561242377d593f9ca5a8195715}{deposit\+Pheromones} (\hyperlink{classSolution}{Solution} \&ant)
+\begin{DoxyCompactList}\small\item\em deposit pheromones \end{DoxyCompactList}\item 
+virtual void \hyperlink{classACS_a934d186f6ad6b61e460722379fdf13f2}{build\+Solution} (\hyperlink{classSolution}{Solution} \&solution)
+\begin{DoxyCompactList}\small\item\em build a new solution based on the pheromones and the heuristic information, and deposit pheromones at the same time (local rule) \end{DoxyCompactList}\item 
+virtual int \hyperlink{classACS_ae491107fa874323259c4d6a5a65a5eb4}{exploitation\+Choice} (int pos)
+\begin{DoxyCompactList}\small\item\em return the exploitation choice for this position (the max of pheromone$\ast$heuristic\+\_\+info) \end{DoxyCompactList}\item 
+virtual void \hyperlink{classACS_ab6e89d95b796c69404be787a314ce27d}{compute\+Probas} ()\hypertarget{classACS_ab6e89d95b796c69404be787a314ce27d}{}\label{classACS_ab6e89d95b796c69404be787a314ce27d}
+
+\begin{DoxyCompactList}\small\item\em compute the probabilites for each decision of the artifical ants and the exploitation choice too \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+class \hyperlink{classACS}{A\+CS} for the Ant Colony System metaheuristic 
+
+\subsection{Member Function Documentation}
+\index{A\+CS@{A\+CS}!build\+Solution@{build\+Solution}}
+\index{build\+Solution@{build\+Solution}!A\+CS@{A\+CS}}
+\subsubsection[{\texorpdfstring{build\+Solution(\+Solution \&solution)}{buildSolution(Solution &solution)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void A\+C\+S\+::build\+Solution (
+\begin{DoxyParamCaption}
+\item[{{\bf Solution} \&}]{solution}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{classACS_a934d186f6ad6b61e460722379fdf13f2}{}\label{classACS_a934d186f6ad6b61e460722379fdf13f2}
+
+
+build a new solution based on the pheromones and the heuristic information, and deposit pheromones at the same time (local rule) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em solution} & the solution built \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classAntColony_afdd84281a77faaaefcb452d2369926d4}{Ant\+Colony}.
+
+\index{A\+CS@{A\+CS}!deposit\+Pheromones@{deposit\+Pheromones}}
+\index{deposit\+Pheromones@{deposit\+Pheromones}!A\+CS@{A\+CS}}
+\subsubsection[{\texorpdfstring{deposit\+Pheromones(\+Solution \&ant)}{depositPheromones(Solution &ant)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void A\+C\+S\+::deposit\+Pheromones (
+\begin{DoxyParamCaption}
+\item[{{\bf Solution} \&}]{ant}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{classACS_a13f9aa561242377d593f9ca5a8195715}{}\label{classACS_a13f9aa561242377d593f9ca5a8195715}
+
+
+deposit pheromones 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ant} & the ant which deposits the pheromones \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classAntColony_ae0a9eae45d8f8ef3cd0e29e4c70044e0}{Ant\+Colony}.
+
+\index{A\+CS@{A\+CS}!exploitation\+Choice@{exploitation\+Choice}}
+\index{exploitation\+Choice@{exploitation\+Choice}!A\+CS@{A\+CS}}
+\subsubsection[{\texorpdfstring{exploitation\+Choice(int pos)}{exploitationChoice(int pos)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual int A\+C\+S\+::exploitation\+Choice (
+\begin{DoxyParamCaption}
+\item[{int}]{pos}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{classACS_ae491107fa874323259c4d6a5a65a5eb4}{}\label{classACS_ae491107fa874323259c4d6a5a65a5eb4}
+
+
+return the exploitation choice for this position (the max of pheromone$\ast$heuristic\+\_\+info) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & the position to make a choice in \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the choice made (character) 
+\end{DoxyReturn}
+\index{A\+CS@{A\+CS}!solve@{solve}}
+\index{solve@{solve}!A\+CS@{A\+CS}}
+\subsubsection[{\texorpdfstring{solve(\+Solution \&best)}{solve(Solution &best)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void A\+C\+S\+::solve (
+\begin{DoxyParamCaption}
+\item[{{\bf Solution} \&}]{best}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classACS_a6629ce98a1027c8d548357c068291f7a}{}\label{classACS_a6629ce98a1027c8d548357c068291f7a}
+
+
+solve the C\+SP problem 
+
+
+\begin{DoxyParams}{Parameters}
+{\em best} & the best solution found \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classAntColony_a2928867b4646afc1c3d553848ed093aa}{Ant\+Colony}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{ACS_8hpp}{A\+C\+S.\+hpp}\end{DoxyCompactItemize}
