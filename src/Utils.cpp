@@ -143,7 +143,7 @@ void Utils::Parameters::defaultMeta() {
 
 /*----------------------------------------------------------------------------*/
 void Utils::Parameters::display() {
-    cout << "Parameters chosen: " << endl;
+    cout << "Parameters: " << endl;
     cout << "\t- instance: " << instanceName << endl;
     cout << "\t- algorithm: " << (algorithm == AntColonyAlgo ? "ant colony algorithm" : (algorithm == MaxMin ? "max min ant system" : (algorithm  == AntColonySystem ? "ant colony system" : "???") )) << endl;
     cout << "\t- seed: " << seed << endl;
@@ -160,7 +160,7 @@ void Utils::Parameters::display() {
     cout << endl;
     if(algorithm == MaxMin) {
         cout << "\t- a (pheromone lower bound): " << a << endl;
-        cout << "\t- pheromones re-initalised after " << convRate*100 << "% of the budget" << endl;
+        cout << "\t- pheromones re-initalised if no improvements for " << convRate*100 << "% of the budget" << endl;
     } else if(algorithm == AntColonySystem) {
         cout << "\t- probability of choosing the intensification rule: " << q0 << endl;
     }
