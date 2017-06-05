@@ -16,7 +16,7 @@ function run {
     name="MaxMin/csp-MaxMin.txt"
     rm $name
 
-    printf "instance;best" >> $name
+    printf "instance" >> $name
     # all the seeds
     for i in ${seed[@]}
     do
@@ -35,7 +35,7 @@ function run {
 
         for i in ${seed[@]}
         do
-            ./../aco_csp "--instance" $f "--algo" "MaxMin" "--seed" $i "--default" "--nIt" "1" > outputMaxMin
+            ./../aco_csp "--instance" $f "--algo" "MaxMin" "--seed" $i "--default" > outputMaxMin
             # cat outputMaxMin
             save $a $name
         done
