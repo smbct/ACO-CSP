@@ -28,6 +28,7 @@ _nAnts(10), _population(_nAnts, instance)
 
 }
 
+/*----------------------------------------------------------------------------*/
 AntColony::AntColony(Instance& instance, Utils::Parameters& parameters):
 _instance(instance), _pheromones(instance.stringLength(), vector<double>(instance.nChar(), 0.)),
 _probas(instance.stringLength(), vector<double>(instance.nChar(), 0.))
@@ -99,11 +100,9 @@ void AntColony::computeProbas() {
 
         for(int j = 0; j < _instance.nChar(); j++) {
 
-            // probability: pheroemoneTrail^{\alpha} + heuristicInfo^{\beta}
-            _probas.at(i).at(j) = pow(_pheromones.at(i).at(j), _alpha) + pow(_instance.greedyScore(i, j), _beta);
+            // probability: pheroemoneTrail^{\alpha} * heuristicInfo^{\beta}
+            _probas.at(i).at(j) = pow(_pheromones.at(i).at(j), _alpha) * pow(_instance.greedyScore(i, j), _beta);
             sum += _probas.at(i).at(j);
-
-            // cout << "phero_score: " << pow(_pheromones.at(i).at(j), _alpha) << " heur_score: " << pow(_instance.greedyScore(i, j), _beta) << endl;
         }
 
         for(int j = 0; j < _instance.nChar(); j++) {
@@ -123,7 +122,7 @@ int AntColony::randomChoice(int pos) {
     int choice = 0;
 
     bool stop = false;
-    while(!stop && choice < _instance.nChar()) {
+    while(!stop && choice < _instance.nChar()-1) {
 
         sum += _probas.at(pos).at(choice);
 
@@ -152,7 +151,6 @@ void AntColony::evaporatePheromone() {
 void AntColony::depositPheromones(Solution& ant) {
 
     for(int j = 0; j < _instance.stringLength(); j++) {
-        // _pheromones.at(j).at(ant.getChar(j)) += 1./(double)ant.cost();
         _pheromones.at(j).at(ant.getChar(j)) += (1. - (double)ant.cost()/(double)_instance.stringLength());
     }
 
@@ -160,8 +158,6 @@ void AntColony::depositPheromones(Solution& ant) {
 
 /*----------------------------------------------------------------------------*/
 void AntColony::solve(Solution& best) {
-
-    cout << "Ant Colony algorithm" << endl;
 
     bool init = false;
     int nbIt = 0;
@@ -194,11 +190,9 @@ void AntColony::solve(Solution& best) {
         }
         computeProbas();
 
-        // displayProbas();
-        // cout << endl << endl;
-
         nbIt ++;
     }
+
 
 }
 

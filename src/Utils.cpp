@@ -91,6 +91,8 @@ void Utils::Parameters::extract(int argc, char* argv[]) {
             stream >> initPheromone;
         } else if(str == "--default") {
             defaultParameters();
+        } else if(str == "--help") {
+            displayHelp();
         }
 
         i ++;
@@ -190,4 +192,5 @@ void Utils::Parameters::displayHelp() {
 
     cout << endl << endl << "Specific Ant Colony System algorihm parameters: " << endl;
     cout << "\t--q0 value                       ) probability of chosing the intensification rule (decision which maximizes phero*heuristic^beta)" << endl;
+    cout << endl << endl << endl;
 }
