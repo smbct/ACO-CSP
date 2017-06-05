@@ -160,7 +160,7 @@ void Utils::Parameters::display() {
     cout << endl;
     if(algorithm == MaxMin) {
         cout << "\t- a (pheromone lower bound): " << a << endl;
-        cout << "\t- pheromones re-initalised if no improvements for " << convRate*100 << "% of the budget" << endl;
+        cout << "\t- pheromones are re-initalised if no improvements for " << convRate*100 << "% of the budget" << endl;
     } else if(algorithm == AntColonySystem) {
         cout << "\t- probability of choosing the intensification rule: " << q0 << endl;
     }
@@ -173,26 +173,26 @@ void Utils::Parameters::displayHelp() {
     cout << "Command line parameters: " << endl << endl << endl;
 
     cout << "Meta parameters: " << endl;
-    cout << "\t--instance instanceName          ) name of the instance file" << endl;
-    cout << "\t--algorithm algoName             ) name of the algorithm (ACO for ant colony algorithm, MaxMin for max min ant system and ACS for ant colony system)" << endl;
-    cout << "\t--seed seedValue                 ) value of the random generator seed" << endl;
-    cout << "\t--localSearch                    ) if specified, a local search is applied to the result " << endl;
-    cout << "\t--default                        ) if specified, parameters are initialised to default values (instance name will not be valid)" << endl;
-    cout << "\t--help                           ) if specified, this help is shown" << endl;
+    cout << "\t--instance <string>          ) name of the instance file" << endl;
+    cout << "\t--algorithm <string>         ) name of the algorithm (ACO for ant colony algorithm, MaxMin for max min ant system and ACS for ant colony system)" << endl;
+    cout << "\t--seed <int>                 ) value of the random generator seed" << endl;
+    cout << "\t--localSearch                ) if specified, a local search is applied to the result " << endl;
+    cout << "\t--default                    ) if specified, parameters are initialised to default values (instance name will not be valid)" << endl;
+    cout << "\t--help                       ) if specified, this help is shown" << endl;
 
     cout << endl << endl << "General ant colony parameters: " << endl;
-    cout << "\t--nAnts numberOfAnts             ) number of artifical ants in the colony" << endl;
-    cout << "\t--nIt numberOfIt                 ) maximum number of iterations allowed" << endl;
-    cout << "\t--alpha alphaValue               ) alpha parameter, strength of the pheromone information" << endl;
-    cout << "\t--beta betaValue                 ) beta parameter, strength of the heuristic information" << endl;
-    cout << "\t--rho rhoValue                   ) percentage of the pheromone evaporation (between 0 and 1)" << endl;
-    cout << "\t--initialPheromone initialValue  ) initial value of the pheromones" << endl;
+    cout << "\t--nAnts <int>                ) number of artifical ants in the colony" << endl;
+    cout << "\t--nIt <int>                  ) maximum number of iterations allowed" << endl;
+    cout << "\t--alpha <float>              ) alpha parameter, strength of the pheromone information" << endl;
+    cout << "\t--beta <float>               ) beta parameter, strength of the heuristic information" << endl;
+    cout << "\t--rho <float<                ) percentage of the pheromone evaporation (between 0 and 1)" << endl;
+    cout << "\t--initialPheromone <float>   ) initial value of the pheromones" << endl;
 
     cout << endl << endl << "Specific Max Min algorihm parameters: " << endl;
-    cout << "\t--a aValue                       ) lower bound of the pheromone = upper bound / a" << endl;
-    cout << "\t--convRate value                 ) percentage of the budget (iterations) before re-initilising the pheromones " << endl;
+    cout << "\t--a <float>                  ) lower bound of the pheromone = upper bound / a" << endl;
+    cout << "\t--convRate <float>           ) percentage of the budget (iterations) before re-initilising the pheromones " << endl;
 
     cout << endl << endl << "Specific Ant Colony System algorihm parameters: " << endl;
-    cout << "\t--q0 value                       ) probability of chosing the intensification rule (decision which maximizes phero*heuristic^beta)" << endl;
+    cout << "\t--q0 <float>                 ) probability of chosing the intensification rule (decision which maximizes phero*heuristic^beta)" << endl;
     cout << endl << endl << endl;
 }
