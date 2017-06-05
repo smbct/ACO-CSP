@@ -122,7 +122,7 @@ void MaxMin::solve(Solution& best) {
             if(!init || _population.at(ant).cost() < best.cost()) {
                 best = _population.at(ant);
                 init = true;
-                cout << "improvement: " << best.cost() << endl;
+                // cout << "improvement: " << best.cost() << endl;
                 updateBounds(best);
 
                 // the algorithm has not converged yet
