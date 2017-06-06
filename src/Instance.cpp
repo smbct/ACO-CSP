@@ -119,8 +119,6 @@ void Instance::computeGreedyScore() {
         // copute the max to rescale the scores
         double max = 0;
 
-        // the result is in between 0 and 1 and the best score is reached by the more frequent character
-        // (as we want to minimize the distance)
         // the exponential function is applied because the scores were very close to each other
         double scaleFactor = 5.;
 
