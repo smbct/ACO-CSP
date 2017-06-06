@@ -9,16 +9,45 @@ parameters of the program
 
 {\ttfamily \#include $<$Utils.\+hpp$>$}
 
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classUtils_1_1Parameters_a168ba95a83d2fc55e054274bf1a69e6f}{Parameters} ()\hypertarget{classUtils_1_1Parameters_a168ba95a83d2fc55e054274bf1a69e6f}{}\label{classUtils_1_1Parameters_a168ba95a83d2fc55e054274bf1a69e6f}
+
+\begin{DoxyCompactList}\small\item\em default construcor, default initialisation \end{DoxyCompactList}\item 
+void \hyperlink{classUtils_1_1Parameters_af21165d8ea068ab8af22b34b732a2704}{extract} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em extract the parameters from the command line arguments \end{DoxyCompactList}\item 
+void \hyperlink{classUtils_1_1Parameters_a213b54e1dd8baefd3dc3af9bfd0a0764}{display} ()\hypertarget{classUtils_1_1Parameters_a213b54e1dd8baefd3dc3af9bfd0a0764}{}\label{classUtils_1_1Parameters_a213b54e1dd8baefd3dc3af9bfd0a0764}
+
+\begin{DoxyCompactList}\small\item\em display the parameters chosen \end{DoxyCompactList}\item 
+void \hyperlink{classUtils_1_1Parameters_a51a1ddc6b2b9d6d4a921bb2a64d8fdaf}{display\+Help} ()\hypertarget{classUtils_1_1Parameters_a51a1ddc6b2b9d6d4a921bb2a64d8fdaf}{}\label{classUtils_1_1Parameters_a51a1ddc6b2b9d6d4a921bb2a64d8fdaf}
+
+\begin{DoxyCompactList}\small\item\em display the help \end{DoxyCompactList}\item 
+void \hyperlink{classUtils_1_1Parameters_a5b564c58c99769f1186849e2590acd37}{default\+Parameters} ()\hypertarget{classUtils_1_1Parameters_a5b564c58c99769f1186849e2590acd37}{}\label{classUtils_1_1Parameters_a5b564c58c99769f1186849e2590acd37}
+
+\begin{DoxyCompactList}\small\item\em default parameters for ant algorithm chosen (best found) \end{DoxyCompactList}\item 
+void \hyperlink{classUtils_1_1Parameters_af93a96e1ff6a0b2ffa92132f31a5e803}{default\+Meta} ()\hypertarget{classUtils_1_1Parameters_af93a96e1ff6a0b2ffa92132f31a5e803}{}\label{classUtils_1_1Parameters_af93a96e1ff6a0b2ffa92132f31a5e803}
+
+\begin{DoxyCompactList}\small\item\em default parameters for the meta parameters \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-std\+::string {\bfseries instance}\hypertarget{classUtils_1_1Parameters_ae593c75deabf01579aef9469611a82b1}{}\label{classUtils_1_1Parameters_ae593c75deabf01579aef9469611a82b1}
+std\+::string {\bfseries instance\+Name}\hypertarget{classUtils_1_1Parameters_ab0788dff93e41cbcde6c9ea8854ca6f6}{}\label{classUtils_1_1Parameters_ab0788dff93e41cbcde6c9ea8854ca6f6}
 
 \item 
-int {\bfseries n\+Ant}\hypertarget{classUtils_1_1Parameters_abf2382e7659ef9907d0d8659ae2394f9}{}\label{classUtils_1_1Parameters_abf2382e7659ef9907d0d8659ae2394f9}
+Utils\+::algo {\bfseries algorithm}\hypertarget{classUtils_1_1Parameters_a96a043a979b82e37b9be9af78447b930}{}\label{classUtils_1_1Parameters_a96a043a979b82e37b9be9af78447b930}
 
 \item 
-int {\bfseries n\+It\+Max}\hypertarget{classUtils_1_1Parameters_a556e768245072cd14ecfbfb3de65713e}{}\label{classUtils_1_1Parameters_a556e768245072cd14ecfbfb3de65713e}
+int {\bfseries seed}\hypertarget{classUtils_1_1Parameters_aa8eae073ddc7186683933b414a067281}{}\label{classUtils_1_1Parameters_aa8eae073ddc7186683933b414a067281}
+
+\item 
+bool {\bfseries local\+Search}\hypertarget{classUtils_1_1Parameters_acab145f64ad0f1a9e3263245abefa35f}{}\label{classUtils_1_1Parameters_acab145f64ad0f1a9e3263245abefa35f}
+
+\item 
+int {\bfseries n\+Ants}\hypertarget{classUtils_1_1Parameters_a74fa0c167b9ffa3c3ee4d8b9f7de6a91}{}\label{classUtils_1_1Parameters_a74fa0c167b9ffa3c3ee4d8b9f7de6a91}
+
+\item 
+int {\bfseries n\+It}\hypertarget{classUtils_1_1Parameters_ad8058c43a54027c965ecb58f8f0f338d}{}\label{classUtils_1_1Parameters_ad8058c43a54027c965ecb58f8f0f338d}
 
 \item 
 double {\bfseries alpha}\hypertarget{classUtils_1_1Parameters_aebb91fccfd275a1062cb906901b3323e}{}\label{classUtils_1_1Parameters_aebb91fccfd275a1062cb906901b3323e}
@@ -30,6 +59,9 @@ double {\bfseries beta}\hypertarget{classUtils_1_1Parameters_a889547f84b7ca5f5d5
 double {\bfseries rho}\hypertarget{classUtils_1_1Parameters_ad8602652ad03924e7a325b946451d870}{}\label{classUtils_1_1Parameters_ad8602652ad03924e7a325b946451d870}
 
 \item 
+double {\bfseries init\+Pheromone}\hypertarget{classUtils_1_1Parameters_a423447d89401ccd5977a29e33cd13087}{}\label{classUtils_1_1Parameters_a423447d89401ccd5977a29e33cd13087}
+
+\item 
 double {\bfseries a}\hypertarget{classUtils_1_1Parameters_a2fdec5e0727e686b6c2e9a198908e549}{}\label{classUtils_1_1Parameters_a2fdec5e0727e686b6c2e9a198908e549}
 
 \item 
@@ -38,14 +70,33 @@ double {\bfseries conv\+Rate}\hypertarget{classUtils_1_1Parameters_a8a18219b25b4
 \item 
 double {\bfseries q0}\hypertarget{classUtils_1_1Parameters_ae7b6ef8925c2415843d89aac10b204bc}{}\label{classUtils_1_1Parameters_ae7b6ef8925c2415843d89aac10b204bc}
 
-\item 
-double {\bfseries init\+Pheromone}\hypertarget{classUtils_1_1Parameters_a423447d89401ccd5977a29e33cd13087}{}\label{classUtils_1_1Parameters_a423447d89401ccd5977a29e33cd13087}
-
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 parameters of the program 
+
+\subsection{Member Function Documentation}
+\index{Utils\+::\+Parameters@{Utils\+::\+Parameters}!extract@{extract}}
+\index{extract@{extract}!Utils\+::\+Parameters@{Utils\+::\+Parameters}}
+\subsubsection[{\texorpdfstring{extract(int argc, char $\ast$argv[])}{extract(int argc, char *argv[])}}]{\setlength{\rightskip}{0pt plus 5cm}void Utils\+::\+Parameters\+::extract (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\hypertarget{classUtils_1_1Parameters_af21165d8ea068ab8af22b34b732a2704}{}\label{classUtils_1_1Parameters_af21165d8ea068ab8af22b34b732a2704}
+
+
+extract the parameters from the command line arguments 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & number of parameters \\
+\hline
+{\em argv} & the strings containing the parameters \\
+\hline
+\end{DoxyParams}
+
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

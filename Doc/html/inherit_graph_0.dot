@@ -7,5 +7,5 @@ digraph "Graphical Class Hierarchy"
   Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node2 [label="ACS",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classACS.html",tooltip="class ACS for the Ant Colony System metaheuristic "];
   Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node3 [label="MaxMin",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMaxMin.html",tooltip="class MaxMin: Max Min ant colony optimization metaheuristic for the Closes String Problem ..."];
+  Node3 [label="MaxMin",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMaxMin.html",tooltip="class MaxMin: Max Min ant colony optimization metaheuristic for the Closest String Problem ..."];
 }
