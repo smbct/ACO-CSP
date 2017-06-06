@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.11.19)  6 JUN 2017 17:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.11.19)  6 JUN 2017 20:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -654,12 +654,37 @@ Underfull \hbox (badness 10000) in paragraph at lines 153--154
  []
 
 [3]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 181.
- [4]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 181.
+Underfull \hbox (badness 10000) in paragraph at lines 164--165
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 168--191
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 192--193
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 194--200
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 201--202
+
+ []
+
+[4]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 231.
+ [5]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 231.
  (./report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 181.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 181.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 231.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 231.
 
 
 Package rerunfilecheck Warning: File `report.out' has changed.
@@ -667,15 +692,15 @@ Package rerunfilecheck Warning: File `report.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `report.out':
-(rerunfilecheck)             Before: DD9068930E5177A6D36697EC6CB86F98;642
-(rerunfilecheck)             After:  E50291D825807784E5B97838D9DC2045;706.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 181.
+(rerunfilecheck)             Before: E50291D825807784E5B97838D9DC2045;706
+(rerunfilecheck)             After:  38BE75B5E8998B1209EEF89E03D4E123;866.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 231.
  ) 
 Here is how much of TeX's memory you used:
- 5706 strings out of 494924
- 78845 string characters out of 6179707
- 158793 words of memory out of 5000000
- 8931 multiletter control sequences out of 15000+600000
+ 5710 strings out of 494924
+ 78890 string characters out of 6179707
+ 159793 words of memory out of 5000000
+ 8932 multiletter control sequences out of 15000+600000
  14598 words of font info for 46 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  29i,7n,28p,515b,324s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -692,10 +717,10 @@ fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/
 texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on report.pdf (4 pages, 140990 bytes).
+Output written on report.pdf (5 pages, 144959 bytes).
 PDF statistics:
- 290 PDF objects out of 1000 (max. 8388607)
- 119 compressed objects within 2 object streams
- 20 named destinations out of 1000 (max. 500000)
- 81 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 303 PDF objects out of 1000 (max. 8388607)
+ 127 compressed objects within 2 object streams
+ 23 named destinations out of 1000 (max. 500000)
+ 89 words of extra memory for PDF output out of 10000 (max. 10000000)
 

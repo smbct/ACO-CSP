@@ -43,3 +43,23 @@ colnames(MaxMin_res)[5] = "sd"
 
 write.table(MaxMin_res, file="Max_Min_Ant_System-results.csv", quote=F, row.names=F, sep=";")
 write.table(ACS_res, "Ant_Colony_System-results.csv", quote=F, row.names=F, sep=";")
+
+
+plot(x = unlist(rpd_comp[1:5,2]),
+     y = unlist(rpd_comp[1:5,3]),
+     main="rpd correlation",
+     xlab="MMAS rpd",
+     ylab="ACS rpd",
+     col="red",
+     xlim=c(0, 1.2),
+     ylim=c(0, 1.2),
+     pch=4)
+
+points(x=unlist(rpd_comp[6:11,2]), unlist(rpd_comp[6:11,3]), col="blue", pch=4)
+points(x=unlist(rpd_comp[12:16,2]), unlist(rpd_comp[12:16,3]), col="green", pch=4)
+
+legend("bottomright", inset=.05, 
+       title="Number of characters",
+       c("20","2", "4"),
+       fill=c("blue", "red", "green"),
+       horiz=FALSE)
