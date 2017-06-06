@@ -53,21 +53,44 @@ The parameters have been chosen after testing different values.
 \subsection{Basic ant system algorithm}
 
 Both variants of the ant colony algorithms implemented in this project rely on the same basis.
-At each iteration, the general algorithm builds $n$ solutions (with $n$ equal to the size of the population) and then updates the pheromones using the formula: $\tau_{ij}(t) = (1-\rho)*\tau(t-1) + \sum \limits_{k=1}^m \Delta \tau_{ij}^k$  where $\tau_{ij}(t)$ is the amount of pheromone at position $i$ for character $j$ after t iterations, $\rho$ is the evaporation rate and $\tau_{ij}^k$ is the quantity of pheromone deposited by ant $k$ if this ant have chosen character $j$ at position $i$. \newline
+At each iteration, the general algorithm builds $n$ solutions (with $n$ equal to the size of the population) and then updates the pheromones with the formula: $\tau_{ij}(t) = (1-\rho)*\tau(t-1) + \sum \limits_{k=1}^m \Delta \tau_{ij}^k$  where $\tau_{ij}(t)$ is the amount of pheromone at position $i$ for character $j$ after t iterations, $\rho$ is the evaporation rate and $\tau_{ij}^k$ is the quantity of pheromone deposited by ant $k$ if this ant have chosen character $j$ at position $i$. \newline
 
-As seen in \cite{aco_csp}, the amount of pheromone deposited by the ants is equal to $1-\frac{HD}{m}$ where HD is the maximum hamming distance of the ant and m is the number of strings of the problem.
-This quantity has been used in the two implementations. \newline
+As seen in \cite{aco_csp}, the amount of pheromone deposited by the ants is equal to $1-\frac{HD}{m}$ where HD is the maximum hamming distance of the ant and $m$ is the length of the strings of the problem.
+This quantity has been used in the two implementations of this project. \newline
 
 To build a solution, each character is chosen according to a probabilty.
-The probability of choosing the character $j$ at position $i$ is equal to $ \frac{greedyScore_{ij}^{\alpha} * \tau_{ij}^{\beta}}{\sum probas}$ where $greedyScore$ is the greedy score described previously and $\tau_{ij}$ is the amount of pheromone at position $i$ for the character $j$. 
+The probability of choosing the character $j$ at position $i$ is equal to $ \frac{greedyScore_{ij}^{\alpha} * \tau_{ij}^{\beta}}{\sum probas}$ where $greedyScore$ is the greedy score described previously and $\tau_{ij}$ is the amount of pheromone at position $i$ for the character $j$.
 
 
 \subsection{Max Min Ant System}
 
+In the Min Max Ant System algorithm, the pheromones are constrained with an upper and a lower bound.
+At the begining of the algorithm, the pheromones are inizialised to $+\infty$.
+After each pheromone updates, the pheromones are checked.
+If it exeeds the lower or the upper bound, the pheromone is re-assigned to this bound. \newline
 
+In this implementation, the upper bound is equal to $1-\rho*\frac{D_{best}}{m}$ where $D_{best}$ is the value of the best solution found so far and $m$ is the length of the string.
+The lower bound of the pheromones is equal to $\frac{up}{a}$ where $up$ is the upper bound and a is a parameter.
+These two bound are updated each time a better solution is found.\newline
+
+In this Max Min Ant System implementation, the best solution of a population generation is the only one which deposits pheromones.
+An addition component is used to prevent the algorithm from converging.
+If a convergence is detected, the pheromones are re-initialised to the upper bound.
+The convergence is detected by a certain number of iterations without any improvements of the best solution found.
+This number of iterations is equal to $iterations*convRate$ where $iterations$ is the maximum number od iterations allowed to the algorithm and $convRate$ is a parameter, between $0$ and $1$ which determines the percentage of the total time allowed to wait before pheromones re-initialisation.
 
 \subsection{Ant Colony System}
 
+The Ant Colony System algorithm is usefull to control the trade off between exploration and intensification.
+In this variant, a additional rule is can be used to build a solution.
+With probability $q_0$, the artificial ant chooses the character $j$ at position $i$ which maximizes $\tau_{ij}*\eta_{ij}^{\beta}$, where $\tau_{ij}$ is the amount of pheromones at position $i$ for the character $j$, $\eta_{ij}$ is the heuristic information for the same character and $q_0$ is a new parameter of the algorithm.
+With probability $1-q_0$, the previous rule is applied (biased exploration).\newline
+
+The pheromones update, which takes place after building the solutions of the population, is also modified.
+Only the best ant so far deposits pheromones.
+The amount of pheromones deposited is the same as before, but it is multiplied by the parameter $\rho$.
+To finish, a new local update rule of the pheromones is used to introduce diversification.
+During the construction of the solutions, for each decision chosen by the ants, the pheromones corresponding to that decision is updated as following: $\tau_{ij}=(1-\rho)*\tau_{ij}+\rho*\tau_0$, where $\tau_{ij}$ is the amount of pheromones for this decision and $\tau_0$ is the initial amount of pheromones.
 
 \section{pheromones and probas}
 
