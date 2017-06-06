@@ -162,42 +162,11 @@ Finally, the $q_0$ parameter is greater than $0.5$ which means that the intensif
 
 \section{Comparison of the algorithms}
 
-To compare the algorithms, the relative percentage deviation has been computed with the mean of the 10 executions of each algorithm on each instance.\\
+To compare the algorithms, the relative percentage deviation has been computed with the mean of the 10 executions of each algorithm on each instance.
 
 \subsection{Relative Precentage Deviations}
 
-\begin{tabular}{c|c|c}
-    Instance & MMAS rpd & ACS rpd \\
-    \hline
-    20-10-10000-1-9 & 0.005 & 0.051 \\
-    20-20-10000-1-7 & 0.134 & 0.220 \\
-    20-30-10000-1-5 & 0.150 & 0.211 \\
-    20-40-10000-1-3 & 0.209 & 0.266 \\
-    20-50-10000-1-1 & 0.308 & 0.357 \\
-    2-30-10000-1-9 & 0.327 & 0.605 \\
-    2-30-10000-2-8 & 0.356 & 0.611 \\
-    2-40-10000-1-7 & 0.766 & 1.034 \\
-    2-40-10000-2-6 & 0.546 & 0.724 \\
-    2-50-10000-1-5 & 0.583 & 0.810 \\
-    2-50-10000-2-4 & 0.696 & 0.914 \\
-    4-20-10000-1-2 & 0.208 & 0.396 \\
-    4-20-10000-2-3 & 0.073 & 0.109 \\
-    4-30-10000-1-1 & 0.205 & 0.334 \\
-    4-30-10000-2-0 & 0.198 & 0.262 \\
-    4-40-10000-1-9 & 0.395 & 0.498 \\
-    4-40-10000-2-8 & 0.130 & 0.164 \\
-    4-50-10000-1-7 & 0.419 & 0.542 \\
-    4-50-10000-2-6 & 0.040 & 0.056
-\end{tabular}\\
-
-The table bellow shows the min, the max, the mean and the standard deviation of the relative percentage deviations.\\
-
-\begin{tabular}{c|c|c|c|c}
-    algorithm & min & max & mean & sd \\
-    \hline
-    MMAS & 0.005 & 0.766 & 0.303 & 0.219 \\
-    ACS & 0.051 & 1.034 & 0.430  & 0.292
-\end{tabular}\\
+The table bellow shows the min, the max, the mean and the standard deviation of the relative percentage deviations.
 
 As we can see, the value for the Min Max algorithm is always lower than the value of the Ant Colony System algorithm. \newline
 
@@ -208,7 +177,7 @@ Thus, we cannot conclude that there is a statistically significant difference be
 There is no algorithm which is statistically better than the other one.
 However, regarding the results on the table bellow, we could recommend the Max Min algorithm, without any guarantee.
 
-\subsection{Correlation of the algorithms}
+\subsection{Correlation of the rpd's}
 
 The plot \ref{fig:corr} shows the correlation between the rpd's of the two algorithms for all instances.
 Each color corresponds to the instances with a same number of characters in the alphabet. \newline
@@ -276,10 +245,67 @@ In this problem, this is possible by keeping the distances of each strings in th
 However, the execution of the local search after each improvement remains slow.
 For this reason, the local search is only applied at the end of the algorithm, on the best solution found.
 
-\subsection{Comparions with the local search}
+\subsection{Comparisons with the local search}
 
+The Max Min variant with the local search executed at the and has been tested with 10 runs on each instances, the the same seed used for the previous tests.
+
+The table in \cite{app:rpd}, contains the relative percentage deviations from the upper bound.
+In the table \cite{app:rpdsum}, we can see that the local search improves the results of the Max Min algorithm.
+Once again, it is possible to execute a wilcoxon test to see if there is a statistically sifgnificant difference between the solution qualities of the Max Min algorithm and the Max Min + loca search. \newline
+
+With a significance level equal to 0.05, the Wilcoxon test returns a p-value equal to 0.693.
+So it is not possible to conclude that there is a significant difference between the solution qualities.
+However, it is obvious that the local search cannot return worst result.
+It can be preferable to use the local search if this step does not take too much time. \newline
+
+To finish, it is also possible to apply the Wilcoxon test to compare the results between the solution qualities of the Max Min + local search and the Ant Colony System algorithm.
+With the same significance level, the p-value returned is equal to 0.130, which does not give another conclusion.
+
+\subsection{Parameter settings with the local search}
 
 \section*{Conclusion}
+
+\section{Appendices}
+
+\subsection{Appendix A}
+
+\label{app:rpd}
+
+\begin{tabular}{c|c|c|c}
+instance & MMAS rpd & ACS rpd & MMAS LS rpd \\
+\hline
+20-10-10000-1-9 & 0.005 & 0.051 & 0 \\
+20-20-10000-1-7 & 0.134 & 0.220 & 0.119 \\
+20-30-10000-1-5 & 0.150 & 0.211 & 0.139 \\
+20-40-10000-1-3 & 0.209 & 0.266 & 0.183 \\
+20-50-10000-1-1 & 0.308 & 0.357 & 0.294 \\
+2-30-10000-1-9 & 0.327 & 0.605 & 0.281 \\
+2-30-10000-2-8 & 0.356 & 0.611 & 0.304 \\
+2-40-10000-1-7 & 0.766 & 1.034 & 0.755 \\
+2-40-10000-2-6 & 0.546 & 0.724 & 0.480 \\
+2-50-10000-1-5 & 0.583 & 0.810 & 0.607 \\
+2-50-10000-2-4 & 0.696 & 0.914 & 0.653 \\
+4-20-10000-1-2 & 0.208 & 0.396 & 0.174 \\
+4-20-10000-2-3 & 0.073 & 0.109 & 0.081 \\
+4-30-10000-1-1 & 0.205 & 0.334 & 0.199 \\
+4-30-10000-2-0 & 0.198 & 0.262 & 0.180 \\
+4-40-10000-1-9 & 0.394 & 0.498 & 0.375 \\
+4-40-10000-2-8 & 0.130 & 0.164 & 0.140 \\
+4-50-10000-1-7 & 0.419 & 0.542 & 0.400 \\
+4-50-10000-2-6 & 0.040 & 0.056 & 0.040 \\
+\end{tabular} \\
+
+\subsection{Appendix B}
+
+\label{app:rpdsum}
+
+\begin{tabular}{c|c|c|c|c}
+    algorithm & min & max & mean & sd \\
+    \hline
+    MMAS & 0.005 & 0.766 & 0.303 & 0.219 \\
+    ACS & 0.051 & 1.034 & 0.430  & 0.292 \\
+    MMAS + LS & 0 & 0.755 & 0.284 & 0.213
+\end{tabular}\\
 
 \begin{thebibliography}{2}
 
