@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.11.19)  6 JUN 2017 21:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.11.19)  6 JUN 2017 22:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -732,29 +732,64 @@ Underfull \hbox (badness 10000) in paragraph at lines 213--215
 
  []
 
-[4] <correl.png, id=98, 538.26094pt x 344.03531pt>
+[4] <correl.png, id=106, 538.26094pt x 344.03531pt>
 File: correl.png Graphic file (type png)
  <use correl.png>
 Package pdftex.def Info: correl.png used on input line 218.
 (pdftex.def)             Requested size: 269.1298pt x 172.01723pt.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 251.
- [5 <./correl.png (PNG copy)>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 251.
+
+Underfull \hbox (badness 10000) in paragraph at lines 232--234
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 235--238
+
+ []
+
+<conv-2-30.png, id=109, 538.26094pt x 344.03531pt>
+File: conv-2-30.png Graphic file (type png)
+ <use conv-2-30.png>
+Package pdftex.def Info: conv-2-30.png used on input line 244.
+(pdftex.def)             Requested size: 269.1298pt x 172.01723pt.
+
+<conv-20-10.png, id=110, 538.26094pt x 344.03531pt>
+File: conv-20-10.png Graphic file (type png)
+ <use conv-20-10.png>
+Package pdftex.def Info: conv-20-10.png used on input line 251.
+(pdftex.def)             Requested size: 269.1298pt x 172.01723pt.
+
+[5 <./correl.png (PNG copy)>] [6 <./conv-2-30.png (PNG copy)> <./conv-20-10.png
+ (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 270--273
+
+ []
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 293.
+[7]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 293.
  (./report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 251.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 251.
-Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: 95C5DA6F0E74CCBE61E70651F9161E33;945.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 251.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 293.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 293.
+
+
+Package rerunfilecheck Warning: File `report.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `report.out':
+(rerunfilecheck)             Before: C65A11CC7A91716073C3D40A46CBF25D;1095
+(rerunfilecheck)             After:  4B4783D6715A0C373B1A0BC03E7B4CF7;1177.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 293.
  ) 
 Here is how much of TeX's memory you used:
- 6537 strings out of 494924
- 90390 string characters out of 6179707
- 173650 words of memory out of 5000000
- 9725 multiletter control sequences out of 15000+600000
+ 6558 strings out of 494924
+ 90687 string characters out of 6179707
+ 173757 words of memory out of 5000000
+ 9737 multiletter control sequences out of 15000+600000
  14598 words of font info for 46 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 29i,7n,28p,515b,326s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 29i,7n,28p,515b,332s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/samuel/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/
 samuel/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </home/samuel/.te
 xmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/samuel/.texmf-var/fo
@@ -768,10 +803,10 @@ fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/
 texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on report.pdf (5 pages, 167438 bytes).
+Output written on report.pdf (7 pages, 230550 bytes).
 PDF statistics:
- 318 PDF objects out of 1000 (max. 8388607)
- 140 compressed objects within 2 object streams
- 25 named destinations out of 1000 (max. 500000)
- 118 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 347 PDF objects out of 1000 (max. 8388607)
+ 162 compressed objects within 2 object streams
+ 32 named destinations out of 1000 (max. 500000)
+ 144 words of extra memory for PDF output out of 10000 (max. 10000000)
 

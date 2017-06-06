@@ -1,20 +1,19 @@
-
 for (i in 1:nrow(ACS) ) {
-  ACS_res[i,1] <- min(ACS[i, 2:ncol(ACS)])
+  MaxMinLS_res[i,2] <- min(MaxMinLS[i, 2:ncol(ACS)])
 }
-colnames(ACS_res)[1] = "min"
+colnames(MaxMinLS_res)[1] = "instance"
+colnames(MaxMinLS_res)[2] = "min"
 for (i in 1:nrow(ACS) ) {
-  ACS_res[i,2] <- max(ACS[i, 2:ncol(ACS)])
+  MaxMinLS_res[i,3] <- max(MaxMinLS[i, 2:ncol(ACS)])
 }
-colnames(ACS_res)[2] = "max"
 for (i in 1:nrow(ACS) ) {
-  ACS_res[i,3] <- mean(unlist(ACS[i, 2:ncol(ACS)]))
+  MaxMinLS_res[i,4] <- mean(unlist(MaxMinLS[i, 2:ncol(ACS)]))
 }
-colnames(ACS_res)[3] = "mean"
+colnames(MaxMinLS_res)[4] = "mean"
 for (i in 1:nrow(ACS) ) {
-  ACS_res[i,4] <- sd(unlist(ACS[i, 2:ncol(ACS)]))
+  MaxMinLS_res[i,5] <- sd(unlist(MaxMinLS[i, 2:ncol(ACS)]))
 }
-colnames(ACS_res)[4] = "sd"
+colnames(MaxMinLS_res)[5] = "sd"
 ACS_res <- cbind(ACS[,1], ACS_res)
 colnames(ACS_res)[1] = "instance"
 
@@ -72,7 +71,7 @@ conv_ACS1 <- read.csv("Convergence/2-30-10000-1-9-ACS", sep=";")
 conv_MaxMin1 <- read.csv("Convergence/2-30-10000-1-9-MaxMin", sep=";")
 
 conv_ACS2 <- read.csv("Convergence/20-10-10000-1-9-ACS", sep=";")
-conv_MaxMin2 <- read.csv("Convergence/20-10-10000-1-9-MinMax", sep=";")
+conv_MaxMin2 <- read.csv("Convergence/20-10-10000-1-9-MaxMin", sep=";")
 
 conv_ACS1 <- cbind(conv_ACS1, (conv_ACS1[,2]-4278)/4278)
 conv_MaxMin1 <- cbind(conv_MaxMin1, (conv_MaxMin1[,2]-4278)/4278)
@@ -117,3 +116,4 @@ legend("topright", inset=.05,
        c("Ant Colony System","Max Min Ant System"),
        fill=c("red", "blue"),
        horiz=FALSE)
+
