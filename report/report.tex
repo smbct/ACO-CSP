@@ -152,9 +152,14 @@ To finish, the $convRate$ parameter (percentage of the maximum number of iterati
 
 $\\$
 
-ACS: Initially, high initial pheromones  bad result
-Then try with the value 1, much better results, pheromones really used, very close to the best solution.
-Always improving
+In this algorithm, the number of ants is the same as before.
+We can see that the value of $\rho$ is very low compared to the previous settings.
+This can be explained by the fact that there is no bounds on the pheromones and no re-initialisation.
+The initial amount of pheromone is also very low compared to the previous one ($+\infty$ for the max min ant system).
+This value can be related to the percentage of the initial pheromone value deposited by all the ants during the construction of the solutions.
+Finally, the $q_0$ parameter is greater than $0.5$ which means that the intensification rule is chosen more often.
+
+\section{Comparison of the algorithms}
 
 \section{Local search}
 
