@@ -63,3 +63,57 @@ legend("bottomright", inset=.05,
        c("20","2", "4"),
        fill=c("blue", "red", "green"),
        horiz=FALSE)
+
+cor(x = unlist(rpd_comp[,2]), y = unlist(rpd_comp[,3]))
+cor.test(x = unlist(rpd_comp[,2]), y = unlist(rpd_comp[,3]), method="spearman")$p.value
+
+# convergence
+conv_ACS1 <- read.csv("Convergence/2-30-10000-1-9-ACS", sep=";")
+conv_MaxMin1 <- read.csv("Convergence/2-30-10000-1-9-MaxMin", sep=";")
+
+conv_ACS2 <- read.csv("Convergence/20-10-10000-1-9-ACS", sep=";")
+conv_MaxMin2 <- read.csv("Convergence/20-10-10000-1-9-MinMax", sep=";")
+
+conv_ACS1 <- cbind(conv_ACS1, (conv_ACS1[,2]-4278)/4278)
+conv_MaxMin1 <- cbind(conv_MaxMin1, (conv_MaxMin1[,2]-4278)/4278)
+
+plot(x = conv_ACS1[,1],
+     y = conv_ACS1[,3],
+     main="Convergence on 2-30-10000-1-9",
+     xlab="Number of evaluations",
+     ylab="Relative Percentage Deviation",
+     col="red",
+     xlim=c(0, 12410),
+     ylim=c(0, 0.03),
+     pch=4,
+     type='l')
+
+lines(x=conv_MaxMin1[,1], y=conv_MaxMin1[,3], col="blue", pch=4)
+
+legend("topright", inset=.05, 
+       title="Algorithm",
+       c("Ant Colony System","Max Min Ant System"),
+       fill=c("red", "blue"),
+       horiz=FALSE)
+
+conv_ACS2 <- cbind(conv_ACS2, (conv_ACS2[,2]-7825)/7825)
+conv_MaxMin2 <- cbind(conv_MaxMin2, (conv_MaxMin2[,2]-7825)/7825)
+
+plot(x = conv_ACS2[,1],
+     y = conv_ACS2[,3],
+     main="Convergence on 20-10-10000-1-9",
+     xlab="Number of evaluations",
+     ylab="Relative Percentage Deviation",
+     col="red",
+     xlim=c(0, 6186),
+     ylim=c(0, 0.007),
+     pch=4,
+     type='l')
+
+lines(x=conv_MaxMin2[,1], y=conv_MaxMin2[,3], col="blue", pch=4)
+
+legend("topright", inset=.05, 
+       title="Algorithm",
+       c("Ant Colony System","Max Min Ant System"),
+       fill=c("red", "blue"),
+       horiz=FALSE)

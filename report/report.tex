@@ -210,8 +210,8 @@ However, regarding the results on the table bellow, we could recommend the Max M
 
 \subsection{Correlation of the algorithms}
 
-The plot below shows the correlation between the rpd's of the two algorithms for all instances.
-Each color corresponds to the instances with a same number of characters in the alphabet.
+The plot \ref{fig:corr} shows the correlation between the rpd's of the two algorithms for all instances.
+Each color corresponds to the instances with a same number of characters in the alphabet. \newline
 
 \begin{figure}
     \centering
@@ -223,19 +223,33 @@ Each color corresponds to the instances with a same number of characters in the 
 We can see that the rpd's of the rwo algorithms are correlated.
 This can be confirmed with a spearman test.
 With a significance level equal to $0.05$, the test returns a p-value equal to $8.085*10^{-6}$ which means that the results are correlated.
-
-
-
-
+We can see on the graph that the instances with 20 characters are the most difficult.
+The correlation shows that the more an instance is difficult for one algorithm, the more this instance will be difficult for the second algorithm.
+This observation sows that the algorithm have a similar behaviour on the problem.
 
 \subsection{Convergences of the algorithms}
 
-
+The two plots \ref{fig:conv1} and \ref{fig:conv2} can be used to compare the convergence of the two algorithms.
 
 \section{Local search}
 
-if the value is not close to the optimal, the local search improves a lot.
-Otherwise, it improves just a little.
+To improve the result of the algorithm, it is possible to execute a local search.
+In this project, the local search is applied to the Max Min Ant System Algorithm.
+
+\subsection{Principle}
+
+
+The principle of a local search is to perform few modifications on a solution.
+These modifications create new solutions which are calle neighbours.
+These solution can be evaluated and hopefully replace the best solution found so far.
+Once a better solution is found, the process can be executed again on this new solution.
+
+\subsection{Application to the Closest String Problem}
+
+The neighbourhood chosen is the set of solutions that differs with only one character from the initial solution.
+The local search algorihtm implemented iterates over all the neighbours and select the best one. (best improvement rule)
+If the best neighbour is better than the best solution found so far, the process is restarted with this new solution. \newline
+
 
 
 \section*{Conclusion}
