@@ -2,7 +2,7 @@
 
 function run {
 
-    ./../aco_csp "--instance" "../instances/20-10-10000-1-9.csp" "--algo" "MinMax" "--seed" "123" "--default" "--iterations" "2000" > output
+    ./../aco_csp "--instance" "../instances/20-10-10000-1-9.csp" "--algo" "MaxMin" "--seed" "123" "--default" "--iterations" "2000" > output
 
     cat output
 
@@ -10,7 +10,7 @@ function run {
     imp=$(printf "$str" | grep -o -E 'improvement: [-+0-9.e]+' | cut -d ' ' -f2 )
     ev=$(printf "$str" | grep -o -E 'eval: [-+0-9.e]+' | cut -d ' ' -f2 )
 
-    file="20-10-10000-1-9-MinMax"
+    file="20-10-10000-1-9-MaxMin"
 
     printf "evaluation;cost\n" >> $file
 
