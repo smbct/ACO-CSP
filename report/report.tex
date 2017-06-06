@@ -2,7 +2,6 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage[frenchb]{babel}
 
 \usepackage{a4wide}
 
@@ -11,7 +10,6 @@
 \usepackage{amsthm}
 
 \usepackage{hyperref}
-
 
 \title{Swarm intelligence: Ant colony optimization project}
 \author{Samuel Buchet: 000447808}
@@ -23,35 +21,53 @@
 
 \section{Introduction}
 
-\section{Solution}
+In this project, two anto colony optimization algorithms are implmented to solve the Closest String Problem.
+The two algorithms implemented are the Max Min Ant System algorithm (MMAS) and the Ant Colony System algorithm (ACS).
+In the following report, the two algorithms are first described.
+After that, the two algorithms are compared.
+Finally, a local search is used to improve the results.
 
-A solution is represented as a string.
-In order to be more efficient for the computation, a matrix used.
-The matrix contains one list for each string of the set.
-The element at position i in the list is a number equal to the hamming distance
-on the sub lists of size $i+1$.
-The final distance can be read on the lste element of the list.
-A variable is also used to keep the index of the last distance.
+\section{Implementation of the algorithms}
 
-\section{Greedy algorithm}
+In this section, the Max Min Ant System and the Ant Colony System algorithms are described.
+These two agorithms also use a heuristic information which is explained below.
 
-The aco depends on a greedy parameter for each choice of the solution.
-The problem aims to minimize the maximum distance.
-A greedy criteria could consist in choosing the character that minimizes the distance.
-For each position, we can assign a score to each character to the alphabet.
-This score would consist in counting how many times the character appears in the strins for a given position.
-We can also take into account the number of characters in common from the begining of the string. \newline
+\subsection{Heuristic information}
 
-It looks like the greedy solution is very good (better than what the algorithm is able to find).
-There must be a problem because it is actually good when we take the min. \newline
+In \cite{aco_csp}, no heuristic information is used.
+However, most of the ant colony algorithms use this kind of information.
+In addition, it can be easily computed for a lot of problems.
+It has been decided to define one for the closest string problem. \newline
 
-Actually, there was a problem.
-The greedy score was inverted so that it tried to obtain the worst possible score.
-And It worked, the greedy solution was worst than the random one.
-So the next problem is that the greedy information cannot be used properly.
-The greedy scores are very close to each other, the roulette does not really have a good effect.
-If we scale the scores, the greedy one is note often chosen.
-Idea: use the exponential function.
+The goal of the closest string problem is to minimize the maximum hamming distance between the solution and the set of strings.
+To minimize the distance between the solution and the set of strings, a greedy decision consists in adding into the solution the character which appears the most in the set of strings at a given position.
+Indeed, by using this character, the distance might be equal to 0 at this position.
+For each character at each position of the string, a greedy score can be defined as the frequency of the character.\newline
+
+However, the frequencies might be very close to each other.
+As a result, if this score is used in the probabilities, the probabilities of getting the best greedy character would be very low.
+To solve this problem, the exponential function is applied to the score after scaling it.
+The final score of character $j$ at position $i$ is equal to: $score_{ij} = \frac{exp(5*frequency_{ij})*1.5}{max_j(frequency_{ij})}$ where $frequency_{ij}$ is the number of occurences of the character $j$ at position $i$ in the set of string of the problems.
+The parameters have been chosen after testing different values.
+
+\subsection{Basic ant system algorithm}
+
+Both variants of the ant colony algorithms implemented in this project rely on the same basis.
+At each iteration, the general algorithm builds $n$ solutions (with $n$ equal to the size of the population) and then updates the pheromones using the formula: $\tau_{ij}(t) = (1-\rho)*\tau(t-1) + \sum \limits_{k=1}^m \Delta \tau_{ij}^k$  where $\tau_{ij}(t)$ is the amount of pheromone at position $i$ for character $j$ after t iterations, $\rho$ is the evaporation rate and $\tau_{ij}^k$ is the quantity of pheromone deposited by ant $k$ if this ant have chosen character $j$ at position $i$. \newline
+
+As seen in \cite{aco_csp}, the amount of pheromone deposited by the ants is equal to $1-\frac{HD}{m}$ where HD is the maximum hamming distance of the ant and m is the number of strings of the problem.
+This quantity has been used in the two implementations. \newline
+
+To build a solution, each character is chosen according to a probabilty.
+The probability of choosing the character $j$ at position $i$ is equal to $ \frac{greedyScore_{ij}^{\alpha} * \tau_{ij}^{\beta}}{\sum probas}$ where $greedyScore$ is the greedy score described previously and $\tau_{ij}$ is the amount of pheromone at position $i$ for the character $j$. 
+
+
+\subsection{Max Min Ant System}
+
+
+
+\subsection{Ant Colony System}
+
 
 \section{pheromones and probas}
 
@@ -64,7 +80,7 @@ MaxMin gives good results, but still to improve.
 main problem: resetting pheromone has no effect maybe because the max limit is too low.
 Something weird with the pheromones in maxmin : if it does not deposit pheromones, it still improve well.\newline \newline
 
-ACS: Initially, high initial pheromones -> bad result
+ACS: Initially, high initial pheromones  bad result
 Then try with the value 1, much better results, pheromones really used, very close to the best solution.
 Always improving
 
@@ -72,5 +88,14 @@ Always improving
 
 if the value is not close to the optimal, the local search improves a lot.
 Otherwise, it improves just a little.
+
+\begin{thebibliography}{2}
+
+\bibitem{aco_csp} Simone Faro and Elisa Pappalardo.
+Ant-CSP: An Ant Colony Optimization Algorithm for the Closest String Problem, pages 370-381.
+Springer Berlin
+Heidelberg, Berlin, Heidelberg, 2010.
+
+\end{thebibliography}
 
 \end{document}
