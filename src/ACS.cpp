@@ -110,18 +110,23 @@ void ACS::solve(Solution& best) {
 
     Solution* bestIt = nullptr;
 
+    int eval = 0;
+
     while(nIt < _nItMax) {
 
         // build the population
         for(int ant = 0; ant < _nAnts; ant ++) {
 
             buildSolution(_population.at(ant));
+            eval ++;
 
             // the update best solution
             if(!init || _population.at(ant).cost() < best.cost()) {
                 best = _population.at(ant);
                 init = true;
-                // cout << "improvement: " << best.cost() << endl;
+                cout << "improvement: " << best.cost() << endl;
+                cout << "eval: " << eval << endl;
+
             }
 
             // update bestIt ant

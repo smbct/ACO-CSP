@@ -210,7 +210,23 @@ However, regarding the results on the table bellow, we could recommend the Max M
 
 \subsection{Correlation of the algorithms}
 
-The plot below shows the correlation between the rpd's of th
+The plot below shows the correlation between the rpd's of the two algorithms for all instances.
+Each color corresponds to the instances with a same number of characters in the alphabet.
+
+\begin{figure}
+    \centering
+        \includegraphics[scale=0.5]{correl}
+    \caption{Correlation plot between the arpd's}
+    \label{fig:corr}
+\end{figure}
+
+We can see that the rpd's of the rwo algorithms are correlated.
+This can be confirmed with a spearman test.
+With a significance level equal to $0.05$, the test returns a p-value equal to $8.085*10^{-6}$ which means that the results are correlated.
+
+
+
+
 
 \subsection{Convergences of the algorithms}
 
