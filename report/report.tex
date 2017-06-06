@@ -230,6 +230,28 @@ This observation sows that the algorithm have a similar behaviour on the problem
 \subsection{Convergences of the algorithms}
 
 The two plots \ref{fig:conv1} and \ref{fig:conv2} can be used to compare the convergence of the two algorithms.
+These plots have been done using the same tuning with a number of iterations equal to 2000 to have enough time to observe the convergence.\newline
+
+On both plots, we can see that the the Max Min algorithm is able to reach a better solution.
+However, on the first plot, we can see that at the begining of the run, the Ant Colony System algorithm find better solutions than Max Min Ant System.
+This result is not clear on the second plot but it could mean that for some instances, if the budget is very limited, it would be preferable to use the Ant Colony System Algorithm. \newline
+
+On the first plot, we can see that the convergence of Ant Colony System is faster, which can be explained by the fact that it does not have a pheromone re-initialisation process like Max Min Ant System.
+However, on the second plot, we can see that the convergence of the Ant Colony System algorithm is slower.
+
+\begin{figure}
+    \centering
+        \includegraphics[scale=0.5]{conv-2-30}
+    \caption{Convergence on 2-30-10000-1-9}
+    \label{fig:conv1}
+\end{figure}
+
+\begin{figure}
+    \centering
+        \includegraphics[scale=0.5]{conv-20-10}
+    \caption{Convergence on 20-10-10000-1-9}
+    \label{fig:conv2}
+\end{figure}
 
 \section{Local search}
 
@@ -237,7 +259,6 @@ To improve the result of the algorithm, it is possible to execute a local search
 In this project, the local search is applied to the Max Min Ant System Algorithm.
 
 \subsection{Principle}
-
 
 The principle of a local search is to perform few modifications on a solution.
 These modifications create new solutions which are calle neighbours.
@@ -250,6 +271,12 @@ The neighbourhood chosen is the set of solutions that differs with only one char
 The local search algorihtm implemented iterates over all the neighbours and select the best one. (best improvement rule)
 If the best neighbour is better than the best solution found so far, the process is restarted with this new solution. \newline
 
+To implement the local search efficiently, the evaluation of the solution needs to be fast.
+In this problem, this is possible by keeping the distances of each strings in the memory and comparing the new character of the solution to the previous one to update the distance ifnecessary.
+However, the execution of the local search after each improvement remains slow.
+For this reason, the local search is only applied at the end of the algorithm, on the best solution found.
+
+\subsection{Comparions with the local search}
 
 
 \section*{Conclusion}
