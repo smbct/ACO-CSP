@@ -22,6 +22,8 @@ Collaboration diagram for Ant\+Colony\+:
 \item 
 \hyperlink{classAntColony_a082dd31637cdb16ea30ae7d970acff90}{Ant\+Colony} (\hyperlink{classInstance}{Instance} \&instance)
 \begin{DoxyCompactList}\small\item\em constructor \end{DoxyCompactList}\item 
+\hyperlink{classAntColony_ab7cfdb8699636f37d7836881e0ff1f7e}{Ant\+Colony} (\hyperlink{classInstance}{Instance} \&instance, \hyperlink{classUtils_1_1Parameters}{Utils\+::\+Parameters} \&parameters)
+\begin{DoxyCompactList}\small\item\em constructor \end{DoxyCompactList}\item 
 virtual void \hyperlink{classAntColony_a2928867b4646afc1c3d553848ed093aa}{solve} (\hyperlink{classSolution}{Solution} \&best)
 \begin{DoxyCompactList}\small\item\em solve the C\+SP problem \end{DoxyCompactList}\item 
 virtual void \hyperlink{classAntColony_a1cc0338e6d7d5be3cc190b1d037b569e}{display\+Pheromones} ()\hypertarget{classAntColony_a1cc0338e6d7d5be3cc190b1d037b569e}{}\label{classAntColony_a1cc0338e6d7d5be3cc190b1d037b569e}
@@ -29,7 +31,10 @@ virtual void \hyperlink{classAntColony_a1cc0338e6d7d5be3cc190b1d037b569e}{displa
 \begin{DoxyCompactList}\small\item\em display the pheromone matrix of the algorithm \end{DoxyCompactList}\item 
 void \hyperlink{classAntColony_afe90d8ff57da5f0a7411b7a8c7f4b009}{display\+Probas} ()\hypertarget{classAntColony_afe90d8ff57da5f0a7411b7a8c7f4b009}{}\label{classAntColony_afe90d8ff57da5f0a7411b7a8c7f4b009}
 
-\begin{DoxyCompactList}\small\item\em display the probabilities matrix of the algorithm \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em display the probabilities matrix of the algorithm \end{DoxyCompactList}\item 
+virtual \hyperlink{classAntColony_ac50189ad7f87ce47cbd1753bf6abd109}{$\sim$\+Ant\+Colony} ()\hypertarget{classAntColony_ac50189ad7f87ce47cbd1753bf6abd109}{}\label{classAntColony_ac50189ad7f87ce47cbd1753bf6abd109}
+
+\begin{DoxyCompactList}\small\item\em default destructor \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -101,6 +106,23 @@ constructor
 
 \begin{DoxyParams}{Parameters}
 {\em instance} & instance of the C\+SP problem \\
+\hline
+\end{DoxyParams}
+\index{Ant\+Colony@{Ant\+Colony}!Ant\+Colony@{Ant\+Colony}}
+\index{Ant\+Colony@{Ant\+Colony}!Ant\+Colony@{Ant\+Colony}}
+\subsubsection[{\texorpdfstring{Ant\+Colony(\+Instance \&instance, Utils\+::\+Parameters \&parameters)}{AntColony(Instance &instance, Utils::Parameters &parameters)}}]{\setlength{\rightskip}{0pt plus 5cm}Ant\+Colony\+::\+Ant\+Colony (
+\begin{DoxyParamCaption}
+\item[{{\bf Instance} \&}]{instance, }
+\item[{{\bf Utils\+::\+Parameters} \&}]{parameters}
+\end{DoxyParamCaption}
+)}\hypertarget{classAntColony_ab7cfdb8699636f37d7836881e0ff1f7e}{}\label{classAntColony_ab7cfdb8699636f37d7836881e0ff1f7e}
+
+
+constructor 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parameters} & the parameters of the algorithm \\
 \hline
 \end{DoxyParams}
 
@@ -183,7 +205,7 @@ solve the C\+SP problem
 \end{DoxyParams}
 
 
-Reimplemented in \hyperlink{classMaxMin_a27fd649b6f2efc343293d759ee6b5e9d}{Max\+Min}, and \hyperlink{classACS_a6629ce98a1027c8d548357c068291f7a}{A\+CS}.
+Reimplemented in \hyperlink{classACS_a6629ce98a1027c8d548357c068291f7a}{A\+CS}, and \hyperlink{classMaxMin_a27fd649b6f2efc343293d759ee6b5e9d}{Max\+Min}.
 
 
 

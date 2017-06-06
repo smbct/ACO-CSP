@@ -1,5 +1,10 @@
 \hypertarget{ACS_8hpp}{}\section{src/\+A\+CS.hpp File Reference}
 \label{ACS_8hpp}\index{src/\+A\+C\+S.\+hpp@{src/\+A\+C\+S.\+hpp}}
+
+
+definition of the class \hyperlink{classACS}{A\+CS} (Ant Colony System)  
+
+
 {\ttfamily \#include \char`\"{}Ant\+Colony.\+hpp\char`\"{}}\\*
 Include dependency graph for A\+C\+S.\+hpp\+:
 % FIG 0
@@ -8,3 +13,8 @@ Include dependency graph for A\+C\+S.\+hpp\+:
 \item 
 class \hyperlink{classACS}{A\+CS}
 \begin{DoxyCompactList}\small\item\em class \hyperlink{classACS}{A\+CS} for the Ant Colony System metaheuristic \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+definition of the class \hyperlink{classACS}{A\+CS} (Ant Colony System) 
+

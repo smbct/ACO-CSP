@@ -23,7 +23,7 @@
 
 \section*{Introduction}
 
-In this project, two anto colony optimization algorithms are implmented to solve the Closest String Problem.
+In this project, two ant colony optimization algorithms are implemented to solve the Closest String Problem.
 The two algorithms implemented are the Max Min Ant System algorithm (MMAS) and the Ant Colony System algorithm (ACS).
 In the following report, the two algorithms are first described.
 After that, the two algorithms are compared.
@@ -67,7 +67,7 @@ The probability of choosing the character $j$ at position $i$ is equal to $ \fra
 \subsection{Max Min Ant System}
 
 In the Min Max Ant System algorithm, the pheromones are constrained with an upper and a lower bound.
-At the begining of the algorithm, the pheromones are inizialised to $+\infty$.
+At the begining of the algorithm, the pheromones are initialised to $+\infty$.
 After each pheromone updates, the pheromones are checked.
 If it exeeds the lower or the upper bound, the pheromone is re-assigned to this bound. \newline
 
@@ -79,7 +79,7 @@ In this Max Min Ant System implementation, the best solution of a population gen
 An addition component is used to prevent the algorithm from converging.
 If a convergence is detected, the pheromones are re-initialised to the upper bound.
 The convergence is detected by a certain number of iterations without any improvements of the best solution found.
-This number of iterations is equal to $iterations*convRate$ where $iterations$ is the maximum number od iterations allowed to the algorithm and $convRate$ is a parameter, between $0$ and $1$ which determines the percentage of the total time allowed to wait before pheromones re-initialisation.
+This number of iterations is equal to $iterations*convRate$ where $iterations$ is the maximum number of iterations allowed to the algorithm and $convRate$ is a parameter, between $0$ and $1$ which determines the percentage of the total time allowed to wait before pheromones re-initialisation.
 
 \subsection{Ant Colony System}
 
@@ -119,6 +119,14 @@ If the result of the ant colony algorithm is not better than the result of the g
 
 \subsection{Max Min settings}
 
+The number of ants has been set to $10$ in this algorithm, as done in \cite{aco_csp}.
+With the same number of iterations, a higher value could give better results but it would require more evaluations.
+The $\rho$ parameter should seem to be high comparing to \cite{aco_csp} (0.03).
+However, the pheromones bounds and the pheromone re-initialisation prevent the algorithm form converging.
+In order to properly use the pheromones, the $a$ parameter should be quite high.
+However, higher values did not give better results, which can be caused by the very low value of the upper bound.
+To finish, the $convRate$ parameter (percentage of the maximum number of iterations to wait before) has been adapted to keep enough time for intensification.\newline
+
 \begin{tabular}{c|c}
     Parameter & Value \\ \hline
     $ants$    & 10    \\
@@ -129,17 +137,14 @@ If the result of the ant colony algorithm is not better than the result of the g
     $convRate$& 0.16  \\
 \end{tabular}
 
-$\\$
-
-The number of ants has been set to $10$ in this algorithm, as done in \cite{aco_csp}.
-With the same number of iterations, a higher value could give better results but it would require more evaluations.
-The $\rho$ parameter should seem to be high comparing to \cite{aco_csp} (0.03).
-However, the pheromones bounds and the pheromone re-initialisation prevent the algorithm form converging.
-In order to properly use the pheromones, the $a$ parameter should be quite high.
-However, higher values did not give better results, which can be caused by the very low value of the upper bound.
-To finish, the $convRate$ parameter (percentage of the maximum number of iterations to wait before) has been adapted to keep enough time for intensification.
-
 \subsection{Ant Colony System settings}
+
+In this algorithm, the number of ants is the same as before.
+We can see that the value of $\rho$ is very low compared to the previous settings.
+This can be explained by the fact that there is no bounds on the pheromones and no re-initialisation.
+The initial amount of pheromone is also very low compared to the previous one ($+\infty$ for the max min ant system).
+This value can be related to the percentage of the initial pheromone value deposited by all the ants during the construction of the solutions.
+Finally, the $q_0$ parameter is greater than $0.5$ which means that the intensification rule is chosen more often. \newline
 
 \begin{tabular}{c|c}
     Parameter        & Value \\ \hline
@@ -150,15 +155,6 @@ To finish, the $convRate$ parameter (percentage of the maximum number of iterati
     $q_0$            & 0.6   \\
     $initPheromones$ & 0.026 \\
 \end{tabular}
-
-$\\$
-
-In this algorithm, the number of ants is the same as before.
-We can see that the value of $\rho$ is very low compared to the previous settings.
-This can be explained by the fact that there is no bounds on the pheromones and no re-initialisation.
-The initial amount of pheromone is also very low compared to the previous one ($+\infty$ for the max min ant system).
-This value can be related to the percentage of the initial pheromone value deposited by all the ants during the construction of the solutions.
-Finally, the $q_0$ parameter is greater than $0.5$ which means that the intensification rule is chosen more often.
 
 \section{Comparison of the algorithms}
 
@@ -247,10 +243,10 @@ For this reason, the local search is only applied at the end of the algorithm, o
 
 \subsection{Comparisons with the local search}
 
-The Max Min variant with the local search executed at the and has been tested with 10 runs on each instances, the the same seed used for the previous tests.
+The Max Min variant with the local search executed at the and has been tested with 10 runs on each instances, the the same seed used for the previous tests. \newline
 
-The table in \cite{app:rpd}, contains the relative percentage deviations from the upper bound.
-In the table \cite{app:rpdsum}, we can see that the local search improves the results of the Max Min algorithm.
+The table in \ref{app:rpd}, contains the relative percentage deviations from the upper bound.
+In the table \ref{app:rpdsum}, we can see that the local search improves the results of the Max Min algorithm.
 Once again, it is possible to execute a wilcoxon test to see if there is a statistically sifgnificant difference between the solution qualities of the Max Min algorithm and the Max Min + loca search. \newline
 
 With a significance level equal to 0.05, the Wilcoxon test returns a p-value equal to 0.693.
@@ -263,11 +259,28 @@ With the same significance level, the p-value returned is equal to 0.130, which 
 
 \subsection{Parameter settings with the local search}
 
+The parameter settings of the Max Min Ant System has been re-executed after the addition of the local search.
+However, as said before, the local search is only applied at the end of the algorithm.
+Then, the local search does not change the best tuning.
+Nevertheless, we can observe that the bigger the deviation to the upper bound is, the more efficient the local search is.
+Thus, if the tuning is not efficient, the local search can still make the result interesting.
+
+
 \section*{Conclusion}
+
+To conclude, we can see that the ant colony algorithms can be very efficient on combinatorial optimization problems like the Closest String one.
+The comparison of the two algorithms shows that with good parameter settings, the different algorithms are very close in terms of quality.
+However, the convergences comparison shows that they do not have exactly the same behaviours.
+Thus some algorithms could be more interesting to obtain very high quality fast and others could be interesting to get very close to the optimal solution.
+One of the main difficulty of the ant colony algorithms remains the parameter settings.
+Multiple techniques have been used but the help of automatic parameter settings algorithms might be usefull to improve the results of the algorithms.
 
 \section{Appendices}
 
 \subsection{Appendix A}
+
+The table bellow shows the relative percentage deviations of the solutions' means from the upper bound for all the algorithms implemented.
+MMAS means Max Min Ant System, ACS means Ant Colony System and MMAS LS corresponds to The Max Min Ant System with the local search.\\
 
 \label{app:rpd}
 
@@ -293,9 +306,11 @@ instance & MMAS rpd & ACS rpd & MMAS LS rpd \\
 4-40-10000-2-8 & 0.130 & 0.164 & 0.140 \\
 4-50-10000-1-7 & 0.419 & 0.542 & 0.400 \\
 4-50-10000-2-6 & 0.040 & 0.056 & 0.040 \\
-\end{tabular} \\
+\end{tabular}
 
 \subsection{Appendix B}
+
+The table bellow shows the maximum, the minimum, the mean and the standard deviation of the relative percentage deviations for each algorithms.\\
 
 \label{app:rpdsum}
 

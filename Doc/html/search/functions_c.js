@@ -1,8 +1,5 @@
 var searchData=
 [
-  ['setchar',['setChar',['../classSolution.html#a2710e3de9dc541b3bee1e8d20ef6c05f',1,'Solution']]],
-  ['setcharupdate',['setCharUpdate',['../classSolution.html#ae39f3ff67a3c60fe069c1e1a379da4f2',1,'Solution']]],
-  ['solution',['Solution',['../classSolution.html#a92768be65a979c8b7d827f97c69828ea',1,'Solution']]],
-  ['solve',['solve',['../classACS.html#a6629ce98a1027c8d548357c068291f7a',1,'ACS::solve()'],['../classAntColony.html#a2928867b4646afc1c3d553848ed093aa',1,'AntColony::solve()'],['../classMaxMin.html#a27fd649b6f2efc343293d759ee6b5e9d',1,'MaxMin::solve()']]],
-  ['stringlength',['stringLength',['../classInstance.html#a992cdeb20875e5f10b287419f4f823e6',1,'Instance']]]
+  ['randomchoice',['randomChoice',['../classAntColony.html#a98842821d95984fcbe2606b74c827b47',1,'AntColony']]],
+  ['randomnumber',['randomNumber',['../classUtils.html#a53886f9ffe8a1a47261a2c712aeec7d5',1,'Utils']]]
 ];

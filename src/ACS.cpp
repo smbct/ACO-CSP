@@ -124,8 +124,8 @@ void ACS::solve(Solution& best) {
             if(!init || _population.at(ant).cost() < best.cost()) {
                 best = _population.at(ant);
                 init = true;
-                cout << "improvement: " << best.cost() << endl;
-                cout << "eval: " << eval << endl;
+                // cout << "improvement: " << best.cost() << endl;
+                // cout << "eval: " << eval << endl;
 
             }
 

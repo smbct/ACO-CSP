@@ -115,6 +115,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a082dd31637cdb16ea30ae7d970acff90"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAntColony.html#a082dd31637cdb16ea30ae7d970acff90">AntColony</a> (<a class="el" href="classInstance.html">Instance</a> &amp;instance)</td></tr>
 <tr class="memdesc:a082dd31637cdb16ea30ae7d970acff90"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor  <a href="#a082dd31637cdb16ea30ae7d970acff90">More...</a><br /></td></tr>
 <tr class="separator:a082dd31637cdb16ea30ae7d970acff90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7cfdb8699636f37d7836881e0ff1f7e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAntColony.html#ab7cfdb8699636f37d7836881e0ff1f7e">AntColony</a> (<a class="el" href="classInstance.html">Instance</a> &amp;instance, <a class="el" href="classUtils_1_1Parameters.html">Utils::Parameters</a> &amp;parameters)</td></tr>
+<tr class="memdesc:ab7cfdb8699636f37d7836881e0ff1f7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor  <a href="#ab7cfdb8699636f37d7836881e0ff1f7e">More...</a><br /></td></tr>
+<tr class="separator:ab7cfdb8699636f37d7836881e0ff1f7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2928867b4646afc1c3d553848ed093aa"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAntColony.html#a2928867b4646afc1c3d553848ed093aa">solve</a> (<a class="el" href="classSolution.html">Solution</a> &amp;best)</td></tr>
 <tr class="memdesc:a2928867b4646afc1c3d553848ed093aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">solve the CSP problem  <a href="#a2928867b4646afc1c3d553848ed093aa">More...</a><br /></td></tr>
 <tr class="separator:a2928867b4646afc1c3d553848ed093aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -126,6 +129,10 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAntColony.html#afe90d8ff57da5f0a7411b7a8c7f4b009">displayProbas</a> ()</td></tr>
 <tr class="memdesc:afe90d8ff57da5f0a7411b7a8c7f4b009"><td class="mdescLeft">&#160;</td><td class="mdescRight">display the probabilities matrix of the algorithm <br /></td></tr>
 <tr class="separator:afe90d8ff57da5f0a7411b7a8c7f4b009"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac50189ad7f87ce47cbd1753bf6abd109"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac50189ad7f87ce47cbd1753bf6abd109"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAntColony.html#ac50189ad7f87ce47cbd1753bf6abd109">~AntColony</a> ()</td></tr>
+<tr class="memdesc:ac50189ad7f87ce47cbd1753bf6abd109"><td class="mdescLeft">&#160;</td><td class="mdescRight">default destructor <br /></td></tr>
+<tr class="separator:ac50189ad7f87ce47cbd1753bf6abd109"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -205,6 +212,40 @@ std::vector&lt; <a class="el" href="classSolution.html">Solution</a> &gt;&#160;<
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">instance</td><td>instance of the CSP problem </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ab7cfdb8699636f37d7836881e0ff1f7e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AntColony::AntColony </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classInstance.html">Instance</a> &amp;&#160;</td>
+          <td class="paramname"><em>instance</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classUtils_1_1Parameters.html">Utils::Parameters</a> &amp;&#160;</td>
+          <td class="paramname"><em>parameters</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>constructor </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parameters</td><td>the parameters of the algorithm </td></tr>
   </table>
   </dd>
 </dl>
@@ -343,7 +384,7 @@ std::vector&lt; <a class="el" href="classSolution.html">Solution</a> &gt;&#160;<
   </dd>
 </dl>
 
-<p>Reimplemented in <a class="el" href="classMaxMin.html#a27fd649b6f2efc343293d759ee6b5e9d">MaxMin</a>, and <a class="el" href="classACS.html#a6629ce98a1027c8d548357c068291f7a">ACS</a>.</p>
+<p>Reimplemented in <a class="el" href="classACS.html#a6629ce98a1027c8d548357c068291f7a">ACS</a>, and <a class="el" href="classMaxMin.html#a27fd649b6f2efc343293d759ee6b5e9d">MaxMin</a>.</p>
 
 </div>
 </div>
