@@ -7,6 +7,8 @@
 \usepackage{amssymb}
 \usepackage{amsthm}
 
+\usepackage{graphicx}
+
 
 \bibliographystyle{apalike}
 
@@ -83,15 +85,157 @@
 \section{Introduction}
 
 \begin{frame}{The Closest String Problem}
+    \begin{itemize}
+        \item An alphabet
+        \item A set of strings
+        \item Find a string that minimizes the maximum hamming distance to the problem's strings
+        \item NP-hard combinatorial optimization problem
+    \end{itemize}
+\end{frame}
+
+\section{Ant colony algorithms for the CSP}
+
+\begin{frame}{Basic ACO elements}
+    \begin{itemize}
+        \item Population of solutions
+        \item Pheromones and heuristic information
+        \item Solutions made using biased probabilites
+        \item Pheromones are deposited and evaporated
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Previous work}
+    \begin{itemize}
+        \item Ant-CSP algorithm by (Faro \& Pappalardo, 2010)
+        \item No heuristic information
+        \item Elitist strategy
+        \item Amount of pheromone deposited: $\frac{distance}{\textit{string\_length}}$
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Heuristic information for the CSP}
+    \begin{itemize}
+        \item Hunch: choose a character which is close to all the strings in the instance set
+        \item $\rightarrow$ for each position, the score of a character is his frequency
+        \item Problem: the frequencies can be very closed which has no effect on the biased probabilities
+        \item Alternative: $score_{alt} \leftarrow e^{score*5}$
+        \item After that, the score is reduced to avoid large numbers
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Algorithms implemented}
+
+    \begin{columns}[t]
+
+        \begin{column}{0.5\textwidth}
+            \begin{block}{Max Min Ant System}
+                \begin{itemize}
+                    \item Bounds on the pheromones
+                    \item Pheromones initialized to $+\infty$
+                    \item $upper\_bound = 1-\rho*\frac{best}{m}$
+                    \item $lower\_bound = \frac{upper\_bound}{a}$
+                    \item Only the best iteration ant deposits pheromones
+                    \item Pheromones can be re-initialized
+                \end{itemize}
+            \end{block}
+        \end{column}
+
+        \begin{column}{0.5\textwidth}
+            \begin{block}{Ant Colony System}
+                \begin{itemize}
+                    \item The best ant so far updates the pheromones
+                    \item Pheromones are also deposited during the construction
+                    \item Two decision rules: intensification and diversification
+                \end{itemize}
+            \end{block}
+        \end{column}
+
+    \end{columns}
 
 \end{frame}
 
+\begin{frame}{Local search}
+
+    \begin{itemize}
+        \item Apply a small change on the solution
+        \item Change a character $\rightarrow$  all possible modifications are tried, the best solution is selected (best improvement rule)
+        \item Fast evaluation of a solution: the distances to all the strings of the instance are saved and updated
+    \end{itemize}
+
+    This process remains slow. It is only applied once, at the end of the ant algorithm execution
+
+\end{frame}
+
+\section{Results}
+
+\begin{frame}{RPD's comparision}
+
+    \centering
+    \begin{tabular}{c|c|c|c|c}
+        algorithm & min & max & mean & sd \\
+        \hline
+        MMAS & 0.005 & 0.766 & 0.303 & 0.219 \\
+        ACS & 0.051 & 1.034 & 0.430  & 0.292 \\
+        MMAS + LS & 0 & 0.755 & 0.284 & 0.213
+    \end{tabular}\\
+
+    \begin{itemize}
+        \item Max Min seems to be always better
+        \item However, not statistically significant (wilcoxon test, significant level equal to $0.05$)
+        \item Only few improvements with the local search on Max Min
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}{Convergences}
+
+    \begin{columns}[t]
+
+        \begin{column}{0.5\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[scale=0.31]{conv-2-30}
+            \end{figure}
+        \end{column}
+
+        \begin{column}{0.5\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[scale=0.31]{conv-20-10}
+            \end{figure}
+        \end{column}
+
+    \end{columns}
+
+    \begin{itemize}
+        \item Expirements with a budget of 20000 evaluations
+        \item ACS seems to converge sooner
+        \item However, at the very begining, it could be better
+    \end{itemize}
+
+\end{frame}
+
+\section{Conclusion}
+
+\begin{frame}{Conclusion}
+    \begin{itemize}
+        \item Good results, high quality solution reached by both algorithms
+        \item Max Min seems to reach higher quality solutions, but more tests are required
+        \item ACS seems to be more performent at the very begining        \item A pheromones re-initialization could be interesting for ACS
+        \item More sophisticated local searches can be implemented
+    \end{itemize}
+\end{frame}
 
 \begin{frame}{References}
 
-    \beamertemplateonlinebibitems
+    % \beamertemplateonlinebibitems
 
     \begin{thebibliography}{1}
+
+        \bibitem{aco_csp} Simone Faro and Elisa Pappalardo.
+        Ant-CSP: An Ant Colony Optimization Algorithm for the Closest String Problem, pages 370-381.
+        Springer Berlin
+        Heidelberg, Berlin, Heidelberg, 2010.
 
     \end{thebibliography}
 
