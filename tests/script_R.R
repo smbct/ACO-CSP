@@ -1,19 +1,19 @@
 for (i in 1:nrow(ACS) ) {
-  MaxMinLS_res[i,2] <- min(MaxMinLS[i, 2:ncol(ACS)])
+  ACS_res[i,2] <- min(ACS[i, 2:ncol(ACS)])
 }
-colnames(MaxMinLS_res)[1] = "instance"
-colnames(MaxMinLS_res)[2] = "min"
+colnames(ACS_res)[1] = "instance"
+colnames(ACS_res)[2] = "min"
 for (i in 1:nrow(ACS) ) {
-  MaxMinLS_res[i,3] <- max(MaxMinLS[i, 2:ncol(ACS)])
+  ACS_res[i,3] <- max(ACS[i, 2:ncol(ACS)])
 }
 for (i in 1:nrow(ACS) ) {
-  MaxMinLS_res[i,4] <- mean(unlist(MaxMinLS[i, 2:ncol(ACS)]))
+  ACS_res[i,4] <- mean(unlist(ACS[i, 2:ncol(ACS)]))
 }
-colnames(MaxMinLS_res)[4] = "mean"
+colnames(ACS_res)[4] = "mean"
 for (i in 1:nrow(ACS) ) {
-  MaxMinLS_res[i,5] <- sd(unlist(MaxMinLS[i, 2:ncol(ACS)]))
+  ACS_res[i,5] <- sd(unlist(ACS[i, 2:ncol(ACS)]))
 }
-colnames(MaxMinLS_res)[5] = "sd"
+colnames(ACS_res)[5] = "sd"
 ACS_res <- cbind(ACS[,1], ACS_res)
 colnames(ACS_res)[1] = "instance"
 
